@@ -8,6 +8,7 @@
     <div class="role-switch" role="group" aria-label="Perfil simulado">
       <button type="button" [class.active]="role() === 'funcionario'" [attr.aria-pressed]="role() === 'funcionario'" (click)="setRole('funcionario')">Funcionário</button>
       <button type="button" [class.active]="role() === 'rh'" [attr.aria-pressed]="role() === 'rh'" (click)="setRole('rh')">RH</button>
+      <button type="button" [class.active]="role() === 'contabilidade'" [attr.aria-pressed]="role() === 'contabilidade'" (click)="setRole('contabilidade')">Contabilidade</button>
     </div>
 
     @if (role() === 'funcionario') {
@@ -19,12 +20,25 @@
           }
         </select>
       </label>
+    } @else if (role() === 'rh') {
+      <label class="employee-select-label">
+        <span>Empresa</span>
+        <select aria-label="Selecionar empresa" [ngModel]="selectedCompanyId()" (ngModelChange)="selectedCompanyId.set($event)">
+          <option value="">Todas as empresas</option>
+          @for (company of companies(); track company.id) {
+            <option [value]="company.id">{{ company.nome }}</option>
+          }
+        </select>
+      </label>
     }
 
     <div class="topbar-actions">
       <span class="topbar-divider"></span>
-      <span class="profile-avatar">{{ role() === 'rh' ? 'RH' : employeeInitials() }}</span>
-      <span class="profile-copy"><strong>{{ role() === 'rh' ? 'Ana Paula Krüger' : currentEmployee()?.nome }}</strong><small>{{ role() === 'rh' ? 'Recursos Humanos' : currentEmployee()?.cargo }}</small></span>
+      <span class="profile-avatar">{{ profileInitials() }}</span>
+      <span class="profile-copy">
+        <strong>{{ profileName() }}</strong>
+        <small>{{ profileEmail() || profileRoleLabel() }}</small>
+      </span>
     </div>
   </header>
 
@@ -36,12 +50,12 @@
     } @else {
       <div class="page-heading">
         <div>
-          <div class="breadcrumb"><span>Início</span><span class="breadcrumb-separator">/</span><strong>{{ role() === 'rh' ? 'Painel de RH' : 'Minhas requisições' }}</strong></div>
+          <div class="breadcrumb"><span>Início</span><span class="breadcrumb-separator">/</span><strong>{{ role() === 'funcionario' ? 'Minhas requisições' : role() === 'rh' ? 'Painel de RH' : 'Painel da contabilidade' }}</strong></div>
           <div class="heading-row">
             <div>
-              <p class="eyebrow">{{ role() === 'rh' ? 'GESTÃO DE PESSOAS' : 'ÁREA DO FUNCIONÁRIO' }}</p>
-              <h1>{{ role() === 'rh' ? 'Painel de RH' : 'Minhas requisições' }}</h1>
-              <p class="page-description">{{ role() === 'rh' ? 'Acompanhe as conversas e dê andamento às solicitações.' : 'Converse diretamente com o RH e acompanhe seus pedidos.' }}</p>
+              <p class="eyebrow">{{ role() === 'funcionario' ? 'ÁREA DO FUNCIONÁRIO' : role() === 'rh' ? 'GESTÃO DE PESSOAS' : 'DEPARTAMENTO PESSOAL' }}</p>
+              <h1>{{ role() === 'funcionario' ? 'Minhas requisições' : role() === 'rh' ? 'Painel de RH' : 'Painel da contabilidade' }}</h1>
+              <p class="page-description">{{ role() === 'funcionario' ? 'Converse diretamente com o RH e acompanhe seus pedidos.' : role() === 'rh' ? 'Acompanhe dono e prazo de cada solicitação e dê andamento.' : 'Resolva o que está com o Departamento Pessoal antes do fechamento.' }}</p>
             </div>
             @if (role() === 'funcionario') {
               <button class="primary-button" type="button" (click)="openNewRequest()">
@@ -51,13 +65,29 @@
             }
           </div>
         </div>
-        <div class="updated-note"><span class="live-indicator"></span>{{ role() === 'rh' ? 'Visão de todas as empresas' : currentCompany()?.nome }}</div>
+        <div class="updated-note">
+          <span class="live-indicator"></span>
+          {{ role() === 'funcionario' ? currentCompany()?.nome : role() === 'contabilidade' ? 'Todas as empresas do escritório' : (currentCompany()?.nome ?? 'Visão de todas as empresas') }}
+          <span class="meta-divider"></span>
+          Hoje: {{ formatDate(today()) }}
+        </div>
       </div>
 
       @if (role() === 'funcionario' && waitingForEmployee().length > 0) {
         <button class="attention-banner" type="button" (click)="openChat(waitingForEmployee()[0].id)">
           <span class="attention-icon">!</span>
           <span><strong>O RH está aguardando sua resposta</strong><small>{{ waitingForEmployee().length === 1 ? 'Há uma requisição pendente de retorno.' : 'Há ' + waitingForEmployee().length + ' requisições pendentes de retorno.' }} Responda para dar continuidade.</small></span>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m8 5 5 5-5 5" /></svg>
+        </button>
+      }
+
+      @if (isStaff() && (overdueRequests().length > 0 || blockingRequests().length > 0)) {
+        <button class="attention-banner banner-critical" type="button" (click)="urgentOnly.set(true); activeFilter.set('Todas')">
+          <span class="attention-icon">!</span>
+          <span>
+            <strong>{{ overdueRequests().length }} {{ overdueRequests().length === 1 ? 'requisição atrasada' : 'requisições atrasadas' }}</strong>
+            <small>{{ blockingRequests().length }} {{ blockingRequests().length === 1 ? 'pendência bloqueia' : 'pendências bloqueiam' }} o fechamento da folha. {{ myQueue().length }} {{ myQueue().length === 1 ? 'está' : 'estão' }} com você.</small>
+          </span>
           <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m8 5 5 5-5 5" /></svg>
         </button>
       }
@@ -74,7 +104,7 @@
               }
             </span>
             <span class="summary-copy"><span>{{ filter === 'Todas' ? 'Todas as requisições' : filter }}</span><strong>{{ statusCount(filter) }}</strong></span>
-            <span class="summary-note">{{ filter === 'Todas' ? (role() === 'rh' ? 'Na sua organização' : 'Feitas por você') : filter === 'Aberto' ? 'Aguardando o RH' : filter === 'Pendente' ? 'Sua resposta é necessária' : 'Encerradas pelo RH' }}</span>
+            <span class="summary-note">{{ filter === 'Todas' ? (role() === 'funcionario' ? 'Feitas por você' : 'Na sua carteira') : filter === 'Aberto' ? 'Com o time interno' : filter === 'Pendente' ? 'Aguardando funcionário' : 'Conversas encerradas' }}</span>
           </button>
         }
       </section>
@@ -83,15 +113,15 @@
         <div class="section-heading">
           <div class="section-title-group">
             <div>
-              <h2 id="requests-heading">{{ role() === 'rh' ? 'Requisições da organização' : 'Suas conversas com o RH' }}</h2>
-              <p>{{ role() === 'rh' ? 'Selecione uma requisição para abrir o chat e responder.' : 'Cada requisição tem uma conversa própria com o RH.' }}</p>
+              <h2 id="requests-heading">{{ role() === 'funcionario' ? 'Suas conversas com o RH' : 'Central de pendências' }}</h2>
+              <p>{{ role() === 'funcionario' ? 'Cada requisição tem uma conversa própria com o RH.' : 'Ordenadas por prazo. Selecione uma requisição para abrir o chat e responder.' }}</p>
             </div>
             <span class="result-count">{{ filteredRequests().length }}</span>
           </div>
           <div class="list-actions">
             <label class="search-field">
               <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.8" cy="8.8" r="5.8" /><path d="m13 13 4 4" /></svg>
-              <input type="search" [placeholder]="role() === 'rh' ? 'Buscar por pessoa ou assunto' : 'Buscar por assunto'" aria-label="Buscar requisições" [ngModel]="searchQuery()" (ngModelChange)="searchQuery.set($event)" />
+              <input type="search" [placeholder]="isStaff() ? 'Buscar por pessoa, e-mail ou assunto' : 'Buscar por assunto'" aria-label="Buscar requisições" [ngModel]="searchQuery()" (ngModelChange)="searchQuery.set($event)" />
             </label>
           </div>
         </div>
@@ -102,19 +132,44 @@
           }
         </div>
 
+        <div class="filter-row">
+          @if (isStaff()) {
+            <span>Bola com</span>
+            @for (owner of ownerFilters; track owner.value) {
+              <button type="button" [class.filter-chip-active]="ownerFilter() === owner.value" (click)="ownerFilter.set(owner.value)">{{ owner.label }} <strong>{{ ownerCount(owner.value) }}</strong></button>
+            }
+            <span class="filter-row-divider"></span>
+          }
+          <button type="button" class="chip-urgent" [class.filter-chip-active]="urgentOnly()" [attr.aria-pressed]="urgentOnly()" (click)="urgentOnly.set(!urgentOnly())">Só urgentes <strong>{{ overdueRequests().length + blockingRequests().length }}</strong></button>
+        </div>
+
         @if (filteredRequests().length > 0) {
           <div class="request-list">
             @for (request of filteredRequests(); track request.id) {
+              @let dl = deadline(request);
               <button class="request-card" type="button" (click)="openChat(request.id)" [attr.aria-label]="'Abrir conversa ' + request.id + ': ' + request.titulo">
                 <span class="request-category-icon" [class]="'request-category-icon ' + categoryClass(request.tipo)">{{ categoryAbbreviation(request.tipo) }}</span>
                 <span class="request-main">
-                  <span class="request-overline"><span>{{ request.id }}</span><span class="overline-dot">·</span><span>{{ typeLabel(request.tipo) }}</span>@if (role() === 'rh') { <span class="overline-dot">·</span><span>{{ request.empresaNome }}</span> }</span>
+                  <span class="request-overline"><span>{{ request.id }}</span><span class="overline-dot">·</span><span>{{ typeLabel(request.tipo) }}</span>@if (isStaff()) { <span class="overline-dot">·</span><span>{{ request.empresaNome }}</span> }@if (request.canal_origem && request.canal_origem !== 'rh_net') { <span class="overline-dot">·</span><span>via {{ channelLabel(request.canal_origem) }}</span> }</span>
                   <strong class="request-title">{{ request.titulo }}</strong>
                   <span class="request-description">{{ request.descricao }}</span>
+                  <span class="request-badges">
+                    @if (request.status !== 'resolvido') {
+                      <span [class]="ownerClass(request)">Bola com {{ ownerLabel(request.dono) }}@if (isStaff()) { · {{ ownerName(request) }} }</span>
+                    }
+                    <span [class]="deadlineClass(request)">
+                      @if (dl.state === 'atrasado' || dl.state === 'hoje') { <i></i> }
+                      {{ dl.label }}
+                    </span>
+                    @if (request.bloqueia_fechamento && request.status !== 'resolvido') {
+                      <span class="blocking-badge">Bloqueia o fechamento</span>
+                    }
+                  </span>
                   <span class="request-meta">
-                    <span class="request-owner"><span class="owner-avatar" [class]="'owner-avatar ' + avatarClass(role() === 'rh' ? request.abertaPorNome : request.funcionarioNome)">{{ initials(role() === 'rh' ? request.abertaPorNome : request.funcionarioNome) }}</span>{{ role() === 'rh' ? request.abertaPorNome : request.funcionarioNome }}</span>
-                    @if (role() === 'rh') { <span class="meta-divider"></span><span>{{ request.empresaNome }}</span>@if (request.abertaPorNome !== request.funcionarioNome) { <span class="meta-divider"></span><span>Funcionário: {{ request.funcionarioNome }}</span> } }
-                    <span class="meta-divider"></span><span>{{ formatDate(request.criada_em) }}</span>
+                    <span class="request-owner"><span class="owner-avatar" [class]="'owner-avatar ' + avatarClass(request.funcionarioNome)">{{ initials(request.funcionarioNome) }}</span>{{ request.funcionarioNome }}</span>
+                    @if (isStaff() && request.funcionarioEmail) { <span class="meta-divider"></span><span class="request-email">{{ request.funcionarioEmail }}</span> }
+                    @if (isStaff() && request.abertaPorNome !== request.funcionarioNome) { <span class="meta-divider"></span><span>Aberta por {{ request.abertaPorNome }}</span> }
+                    <span class="meta-divider"></span><span>Aberta em {{ formatDate(request.criada_em) }}</span>
                     @if (lastMessage(request); as message) { <span class="meta-divider"></span><span class="last-message-preview">{{ message.autor }}: {{ message.mensagem }}</span> }
                   </span>
                   @if (role() === 'funcionario' && request.status === 'pendente') { <span class="waiting-label"><i></i>O RH aguarda sua resposta</span> }
@@ -130,21 +185,24 @@
           <div class="empty-state">
             <span class="empty-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m16 16 4 4M8 10h5" /></svg></span>
             <h3>Nenhuma requisição encontrada</h3>
-            <p>{{ role() === 'rh' ? 'Não há requisições nesta categoria.' : 'Você ainda não tem requisições nesta categoria.' }}</p>
+            <p>{{ isStaff() ? 'Não há requisições com esses filtros.' : 'Você ainda não tem requisições nesta categoria.' }}</p>
             @if (role() === 'funcionario') { <button type="button" (click)="openNewRequest()">Criar requisição</button> }
           </div>
         }
         <div class="list-footer"><span>Mostrando <strong>{{ filteredRequests().length }}</strong> de <strong>{{ scopedRequests().length }}</strong> requisições</span></div>
       </section>
 
-      <footer class="page-footer"><span>© 2026 Interação SCI</span><span><span class="simulation-note">Simulação: alterações ficam apenas nesta sessão.</span><span class="system-status"><i></i> Ambiente de demonstração</span></span></footer>
+      <footer class="page-footer"><span>© 2026 Interação SCI</span><span><span class="simulation-note">Simulação: alterações ficam apenas nesta sessão. "Hoje" é {{ formatDate(today()) }}, a data de referência do dataset.</span><span class="system-status"><i></i> Ambiente de demonstração</span></span></footer>
     }
   </main>
 
   @if (showRequestModal()) {
-    <div class="modal-backdrop" (click)="showRequestModal.set(false)" (keydown.escape)="showRequestModal.set(false)">
+    <div class="modal-backdrop" (click)="showRequestModal.set(false)">
       <section class="request-modal" role="dialog" aria-modal="true" aria-labelledby="new-request-heading" (click)="$event.stopPropagation()">
         <div class="modal-heading"><div><p class="eyebrow">NOVA CONVERSA COM O RH</p><h2 id="new-request-heading">Abrir requisição</h2><p>O RH da sua empresa receberá a mensagem.</p></div><button class="icon-button modal-close" type="button" aria-label="Fechar" (click)="showRequestModal.set(false)">×</button></div>
+        @if (profileEmail()) {
+          <p class="sender-note">Enviando como <strong>{{ profileEmail() }}</strong> · {{ currentCompany()?.nome }}</p>
+        }
         <form (ngSubmit)="createRequest()">
           <label class="form-field">Tipo de requisição<select name="type" [(ngModel)]="newDraft.tipo" required><option value="ferias">Férias</option><option value="atestado">Atestado</option><option value="dados_bancarios">Troca de conta bancária</option><option value="duvida_holerite">Dúvida sobre holerite</option><option value="dependente">Dependente</option></select></label>
           <label class="form-field">Assunto<input name="title" [(ngModel)]="newDraft.titulo" required maxlength="100" placeholder="Resuma o que você precisa" /></label>
@@ -157,16 +215,31 @@
   }
 
   @if (selectedRequest(); as request) {
-    <div class="modal-backdrop chat-backdrop" (click)="closeChat()" (keydown.escape)="closeChat()">
+    @let chatDeadline = deadline(request);
+    <div class="modal-backdrop chat-backdrop" (click)="closeChat()">
       <section class="chat-modal" role="dialog" aria-modal="true" [attr.aria-labelledby]="'chat-heading-' + request.id" (click)="$event.stopPropagation()">
         <header class="chat-header">
           <span class="request-category-icon" [class]="'request-category-icon ' + categoryClass(request.tipo)">{{ categoryAbbreviation(request.tipo) }}</span>
-          <div class="chat-title"><p class="eyebrow">{{ request.id }} · {{ typeLabel(request.tipo) }} @if (role() === 'rh') { · {{ request.empresaNome }} }</p><h2 [id]="'chat-heading-' + request.id">{{ request.titulo }}</h2><span>{{ request.funcionarioNome }} · {{ statusLabel(request.status) }}</span></div>
-          @if (role() === 'rh' && request.status === 'resolvido') { <button class="secondary-button reopen-button" type="button" (click)="reopenRequest(request.id)">Reabrir requisição</button> }
+          <div class="chat-title"><p class="eyebrow">{{ request.id }} · {{ typeLabel(request.tipo) }} @if (isStaff()) { · {{ request.empresaNome }} }</p><h2 [id]="'chat-heading-' + request.id">{{ request.titulo }}</h2><span>{{ request.funcionarioNome }} · {{ statusLabel(request.status) }}</span></div>
+          @if (isStaff() && request.status === 'resolvido') { <button class="secondary-button reopen-button" type="button" (click)="reopenRequest(request.id)">Reabrir requisição</button> }
           <button class="icon-button modal-close" type="button" aria-label="Fechar conversa" (click)="closeChat()">×</button>
         </header>
 
-        <div class="chat-context"><span>{{ request.descricao }}</span><span>Aberta em {{ formatDate(request.criada_em) }}</span></div>
+        <div class="chat-badges">
+          @if (request.status !== 'resolvido') {
+            <span [class]="ownerClass(request)">Bola com {{ ownerLabel(request.dono) }} · {{ ownerName(request) }}</span>
+          }
+          <span [class]="deadlineClass(request)">@if (chatDeadline.state === 'atrasado' || chatDeadline.state === 'hoje') { <i></i> }{{ chatDeadline.label }}</span>
+          @if (request.bloqueia_fechamento && request.status !== 'resolvido') { <span class="blocking-badge">Bloqueia o fechamento</span> }
+        </div>
+
+        <div class="chat-context">
+          <span>{{ request.descricao }}</span>
+          <span>
+            Aberta em {{ formatDate(request.criada_em) }}@if (request.canal_origem) { · via {{ channelLabel(request.canal_origem) }} }
+            @if (isStaff() && request.funcionarioEmail) { <br />{{ request.funcionarioEmail }} }
+          </span>
+        </div>
 
         <div class="message-list" aria-label="Mensagens da conversa">
           @for (message of request.historico; track $index) {
@@ -178,17 +251,26 @@
         </div>
 
         @if (request.status === 'resolvido') {
-          <div class="chat-closed"><span>✓</span><div><strong>Esta conversa foi encerrada pelo RH.</strong><small>{{ role() === 'rh' ? 'Você pode reabrir a requisição para continuar o atendimento.' : 'Se precisar de ajuda novamente, abra uma nova requisição.' }}</small></div></div>
+          <div class="chat-closed"><span>✓</span><div><strong>Esta conversa foi encerrada.</strong><small>{{ isStaff() ? 'Você pode reabrir a requisição para continuar o atendimento.' : 'Se precisar de ajuda novamente, abra uma nova requisição.' }}</small></div></div>
         } @else {
           <form class="chat-composer" (ngSubmit)="sendMessage(request)">
-            @if (role() === 'rh') {
-              <label class="reply-status">Após responder
-                <select [value]="replyStatus()" (change)="setReplyStatus($event)" name="replyStatus"><option value="pendente">Pendente · aguardar funcionário</option><option value="aberto">Aberto · continuar com RH</option><option value="resolvido">Resolvido · encerrar chat</option></select>
-              </label>
+            @if (isStaff()) {
+              <div class="composer-controls">
+                <label class="reply-status">Após responder
+                  <select [value]="replyTarget()" (change)="setReplyTarget($event)" name="replyTarget">
+                    @for (target of replyTargets(); track target.value) {
+                      <option [value]="target.value">{{ target.label }}</option>
+                    }
+                  </select>
+                </label>
+                <label class="reply-status">Prazo
+                  <input type="date" name="replyDeadline" [value]="replyDeadline()" (change)="setReplyDeadline($event)" aria-label="Prazo da requisição" />
+                </label>
+              </div>
             } @else if (request.status === 'pendente') {
               <div class="reply-hint"><span class="live-indicator"></span>O RH aguarda seu retorno para continuar.</div>
             }
-            <label class="composer-field"><span class="visually-hidden">Escreva sua mensagem</span><textarea name="reply" [value]="replyText()" (input)="updateReplyText($event)" rows="3" placeholder="Escreva uma mensagem para o RH..." required></textarea></label>
+            <label class="composer-field"><span class="visually-hidden">Escreva sua mensagem</span><textarea name="reply" [value]="replyText()" (input)="updateReplyText($event)" rows="3" [placeholder]="isStaff() ? 'Escreva uma mensagem para o funcionário...' : 'Escreva uma mensagem para o RH...'" required></textarea></label>
             <div class="composer-actions">
               <label class="attach-button" title="Anexar arquivo"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7.5 10.5 5-5a2.5 2.5 0 0 1 3.5 3.5l-7 7A4 4 0 0 1 3.3 10.3l7-7" /></svg><span>Anexar arquivo</span><input type="file" multiple (change)="onChatFiles($event)" /></label>
               @if (chatAttachments().length > 0) { <span class="selected-files">{{ chatAttachments().join(', ') }}</span> }

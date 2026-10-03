@@ -1599,3 +1599,146 @@ h1 {
 	.reopen-button { max-width: 90px; white-space: normal; }
 	.chat-closed { align-items: start; padding: 12px; }
 }
+
+/* Central de pendencias: dono, prazo e bloqueio de fechamento */
+
+.category-other { color: #5f726a; background: #eef2f0; }
+
+.banner-critical {
+	border-color: #f0c8c0;
+	color: #8a3f2e;
+	background: #fdf4f1;
+}
+
+.banner-critical:hover { border-color: #e2a898; background: #fcefeb; }
+.banner-critical .attention-icon { background: #b9543c; }
+.banner-critical small { color: #a0675a; }
+
+.request-badges,
+.chat-badges {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin-top: 5px;
+}
+
+.owner-badge,
+.deadline-badge,
+.blocking-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	padding: 2px 7px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	font-size: 9px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.owner-badge { max-width: 280px; overflow: hidden; text-overflow: ellipsis; }
+.owner-rh { border-color: #d7e4ee; color: #3f6f93; background: #f1f6fa; }
+.owner-contabilidade { border-color: #e0dcef; color: #5c5693; background: #f4f3fa; }
+.owner-funcionario { border-color: #f0e2c5; color: #93692a; background: #fdf8ee; }
+.owner-mine { box-shadow: inset 0 0 0 1px currentColor; }
+
+.deadline-badge i {
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: currentColor;
+}
+
+.deadline-atrasado { border-color: #efc4ba; color: #a8432c; background: #fdf1ee; }
+.deadline-hoje { border-color: #f0dcb4; color: #9a6a1c; background: #fdf7ea; }
+.deadline-proximo { border-color: #e6e3c4; color: #7c7a37; background: #fbfaef; }
+.deadline-futuro { border-color: #e2e9e5; color: #647a6f; background: #f7faf8; }
+.deadline-sem_prazo { border-color: #e6eae8; color: #8a938f; background: #f8faf9; }
+.deadline-encerrado { border-color: #dde8e0; color: #5c8068; background: #f3f9f5; }
+
+.blocking-badge { border-color: #e7c7bf; color: #94452f; background: #fcf0ed; }
+
+.request-email {
+	max-width: 190px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.filter-row button strong {
+	color: inherit;
+	font-size: 9px;
+	font-weight: 700;
+	opacity: 0.68;
+}
+
+.filter-row-divider {
+	width: 1px;
+	height: 17px;
+	margin: 0 3px;
+	background: #e2e9e5;
+}
+
+.chip-urgent.filter-chip-active {
+	border-color: #e5b8ab;
+	color: #9c4631;
+	background: #fdf2ef;
+}
+
+.chat-badges {
+	margin: 0;
+	padding: 11px 20px;
+	border-bottom: 1px solid #edf1ee;
+	background: #fff;
+}
+
+.sender-note {
+	margin: -12px 0 17px;
+	padding: 8px 10px;
+	border: 1px solid #e4ece6;
+	border-radius: 5px;
+	color: #63746b;
+	background: #f8fbf9;
+	font-size: 10px;
+}
+
+.sender-note strong { color: #2c4a3c; font-weight: 650; }
+
+.composer-controls {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 16px;
+	margin-bottom: 9px;
+}
+
+.composer-controls .reply-status { margin-bottom: 0; }
+
+.composer-controls input[type='date'] {
+	min-height: 29px;
+	padding: 0 7px;
+	border: 1px solid #dfe7e2;
+	border-radius: 4px;
+	outline: none;
+	color: #40564a;
+	background: #fff;
+	font-size: 9px;
+}
+
+.composer-controls input[type='date']:focus { border-color: #78aa8e; }
+
+@media (max-width: 1020px) {
+	.owner-badge { max-width: 210px; }
+	.request-email { max-width: 150px; }
+}
+
+@media (max-width: 760px) {
+	.role-switch button { padding: 0 6px; font-size: 8px; }
+	.request-badges { gap: 5px; }
+	.owner-badge { max-width: 60vw; }
+	.request-email { display: none; }
+	.chat-badges { padding: 9px 13px; }
+	.composer-controls { align-items: stretch; flex-direction: column; gap: 8px; }
+	.composer-controls input[type='date'] { width: 100%; }
+}
