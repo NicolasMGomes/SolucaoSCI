@@ -1,0 +1,37 @@
+﻿id;empresa_id;nome;cargo;setor;data_admissao;salario_base;situacao;usa_app_rh_net;email;telefone
+F01;E1;Marina Souza;Atendente de balcão;Loja;2024-03-11;2100;ativo;True;marina.souza@paodavila.exemplo;(47) 90000-1000
+F02;E1;José Carlos Pereira;Padeiro;Produção;2019-06-03;2800;ativo;False;jose.pereira@paodavila.exemplo;(47) 90000-1001
+F03;E1;Luana Fernandes;Confeiteira;Produção;2022-01-17;2500;ativo;True;luana.fernandes@paodavila.exemplo;(47) 90000-1002
+F04;E1;Rafael Antunes;Auxiliar de padaria;Produção;2025-08-04;1900;ativo;True;rafael.antunes@paodavila.exemplo;(47) 90000-1003
+F05;E1;Irene Schmitt;Operadora de caixa;Loja;2016-02-01;2200;ativo;False;irene.schmitt@paodavila.exemplo;(47) 90000-1004
+F06;E1;Kauã Oliveira;Entregador;Loja;2026-09-14;1950;ativo;True;kaua.oliveira@paodavila.exemplo;(47) 90000-1005
+F07;E1;Bianca Lopes;Atendente de balcão;Loja;2026-10-26;2100;em_admissao;False;bianca.lopes@paodavila.exemplo;(47) 90000-1006
+F08;E2;Ana Paula Krüger;Analista de RH;Administrativo;2018-04-02;4800;ativo;True;ana.kruger@fioazul.exemplo;(47) 90000-1007
+F09;E2;Roberto Hering;Supervisor de produção;Produção;2012-09-10;6200;ativo;True;roberto.hering@fioazul.exemplo;(47) 90000-1008
+F10;E2;Cláudia Werner;Costureira;Confecção;2015-03-16;2400;ativo;True;claudia.werner@fioazul.exemplo;(47) 90000-1009
+F11;E2;Tatiane Moser;Costureira;Confecção;2021-07-05;2400;afastado;True;tatiane.moser@fioazul.exemplo;(47) 90000-1010
+F12;E2;Edson Pfiffer;Operador de tear;Tecelagem;2017-11-20;2900;ativo;True;edson.pfiffer@fioazul.exemplo;(47) 90000-1011
+F13;E2;Jaqueline dos Santos;Costureira;Confecção;2023-02-06;2400;ativo;True;jaqueline.santos@fioazul.exemplo;(47) 90000-1012
+F14;E2;Marcos Vinícius Rocha;Mecânico de manutenção;Manutenção;2014-05-12;4100;ativo;False;marcos.rocha@fioazul.exemplo;(47) 90000-1013
+F15;E2;Priscila Hass;Auxiliar de expedição;Expedição;2020-10-01;2200;ferias;True;priscila.hass@fioazul.exemplo;(47) 90000-1014
+F16;E2;Gustavo Lenz;Operador de tear;Tecelagem;2022-08-15;2900;ativo;True;gustavo.lenz@fioazul.exemplo;(47) 90000-1015
+F17;E2;Simone Kleine;Revisora de qualidade;Qualidade;2019-01-21;2600;ativo;True;simone.kleine@fioazul.exemplo;(47) 90000-1016
+F18;E2;Diego Martins;Auxiliar de produção;Produção;2024-06-03;2100;aviso_previo;True;diego.martins@fioazul.exemplo;(47) 90000-1017
+F19;E2;Fernanda Zimmermann;Assistente administrativa;Administrativo;2021-03-08;3000;ativo;True;fernanda.zimmermann@fioazul.exemplo;(47) 90000-1018
+F20;E2;Lucas Batista;Jovem aprendiz;Administrativo;2026-02-02;1100;ativo;True;lucas.batista@fioazul.exemplo;(47) 90000-1019
+F21;E3;Helena Duarte;Cirurgiã-dentista;Clínico;2020-02-03;7500;ativo;True;helena.duarte@odontosorriso.exemplo;(47) 90000-1020
+F22;E3;Camila Reis;Recepcionista;Recepção;2023-05-15;2300;ativo;True;camila.reis@odontosorriso.exemplo;(47) 90000-1021
+F23;E3;Patrícia Vieira;Auxiliar de saúde bucal;Clínico;2022-09-12;2500;ativo;False;patricia.vieira@odontosorriso.exemplo;(47) 90000-1022
+F24;E3;Thiago Moretti;Técnico em saúde bucal;Clínico;2021-11-08;3100;ativo;True;thiago.moretti@odontosorriso.exemplo;(47) 90000-1023
+F25;E3;Juliana Costa;Gerente administrativa;Administrativo;2017-03-01;4500;ativo;True;juliana.costa@odontosorriso.exemplo;(47) 90000-1024
+F26;E3;Sabrina Melo;Auxiliar de saúde bucal;Clínico;2024-01-22;2500;ativo;True;sabrina.melo@odontosorriso.exemplo;(47) 90000-1025
+F27;E3;Renata Gonçalves;Auxiliar de limpeza;Apoio;2019-08-05;1850;ativo;False;renata.goncalves@odontosorriso.exemplo;(47) 90000-1026
+F28;E4;Bruno Schneider;Desenvolvedor pleno;Engenharia;2022-04-04;8500;ativo;True;bruno.schneider@technorte.exemplo;(47) 90000-1027
+F29;E4;Larissa Teixeira;Analista de QA;Engenharia;2023-03-13;6000;ativo;True;larissa.teixeira@technorte.exemplo;(47) 90000-1028
+F30;E4;Henrique Alves;Desenvolvedor júnior;Engenharia;2025-02-10;4800;ativo;True;henrique.alves@technorte.exemplo;(47) 90000-1029
+F31;E4;Gabriela Nunes;Designer UX;Produto;2022-10-03;6500;ativo;True;gabriela.nunes@technorte.exemplo;(47) 90000-1030
+F32;E4;Otávio Ramos;Analista de suporte;Suporte;2024-07-01;3800;ativo;True;otavio.ramos@technorte.exemplo;(47) 90000-1031
+F33;E4;Isabela Freitas;Coordenadora de pessoas;Pessoas;2020-01-06;7000;ativo;True;isabela.freitas@technorte.exemplo;(47) 90000-1032
+F34;E4;Matheus Kuhn;Desenvolvedor sênior;Engenharia;2019-05-20;12000;ativo;True;matheus.kuhn@technorte.exemplo;(47) 90000-1033
+F35;E4;Yasmin Carvalho;Analista de suporte;Suporte;2025-06-02;3800;ativo;True;yasmin.carvalho@technorte.exemplo;(47) 90000-1034
+F36;E4;Pedro Henrique Lima;Analista DevOps;Engenharia;2021-08-16;9500;ferias;True;pedro.lima@technorte.exemplo;(47) 90000-1035

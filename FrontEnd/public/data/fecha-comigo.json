@@ -1,0 +1,2087 @@
+{
+  "meta": {
+    "nome": "Fecha Comigo - dataset mockado",
+    "aviso": "Dados 100% fictícios. Nomes, empresas e valores são inventados e ilustrativos (inclusive descontos de INSS/IRRF). Não use para cálculo real.",
+    "data_referencia": "2026-10-20",
+    "data_referencia_explicacao": "Considere que 'hoje' é 20/10/2026. A folha em andamento é a da competência 10/2026 (outubro).",
+    "competencia_atual": "2026-10",
+    "versao": "1.0"
+  },
+  "dicionario": {
+    "papeis": {
+      "funcionario": "Quem trabalha na empresa cliente",
+      "rh": "Quem cuida das pessoas na empresa cliente",
+      "contabilidade": "O escritório contábil (Departamento Pessoal)"
+    },
+    "status_pendencia": {
+      "aberta": "Ninguém agiu ainda",
+      "aguardando_funcionario": "Bola está com o funcionário",
+      "aguardando_rh": "Bola está com o RH",
+      "aguardando_contabilidade": "Bola está com a contabilidade",
+      "resolvida": "Encerrada"
+    },
+    "tipos_pendencia": [
+      "ferias",
+      "atestado",
+      "dados_bancarios",
+      "duvida_holerite",
+      "duvida_beneficio",
+      "duvida_ponto",
+      "admissao",
+      "rescisao",
+      "horas_extras",
+      "ponto",
+      "afastamento",
+      "dependente",
+      "cadastro",
+      "alteracao_salarial",
+      "documento_empresa"
+    ],
+    "canais": {
+      "whatsapp": "Mensagem de WhatsApp",
+      "email": "E-mail",
+      "telefone": "Ligação",
+      "presencial": "Conversa pessoalmente",
+      "rh_net": "Pelo sistema (RH Net / app)"
+    },
+    "bloqueia_fechamento": "true = se não for resolvida até o prazo, a folha do mês não fecha ou sai errada",
+    "etapas_fechamento": {
+      "coleta_rh": "RH reúne e lança as informações do mês",
+      "envio_contabilidade": "RH envia as informações para a contabilidade",
+      "processamento": "Contabilidade calcula a folha",
+      "conferencia_rh": "RH confere a prévia da folha",
+      "fechamento": "Folha fechada e enviada ao governo",
+      "holerites_liberados": "Holerites disponíveis para os funcionários"
+    }
+  },
+  "escritorio": {
+    "id": "ESC01",
+    "nome": "Conta Certa Contabilidade",
+    "cidade": "Blumenau/SC",
+    "empresas_atendidas_total": 30,
+    "observacao": "O escritório atende 30 empresas; o dataset traz 4 delas.",
+    "responsavel_dp": {
+      "nome": "Carlos Eduardo Sens",
+      "papel": "contabilidade",
+      "cargo": "Contador / analista de Departamento Pessoal",
+      "email": "carlos@contacerta.exemplo"
+    }
+  },
+  "empresas": [
+    {
+      "id": "E1",
+      "nome": "Padaria Pão da Vila",
+      "segmento": "Alimentação / comércio",
+      "qtd_funcionarios": 7,
+      "rh_nome": "Valdir Machado",
+      "rh_cargo": "Proprietário (cuida do RH sozinho)",
+      "rh_email": "valdir@paodavila.exemplo",
+      "usa_rh_net": false,
+      "canal_preferido": "whatsapp",
+      "prazo_envio_rh": "2026-10-23",
+      "data_pagamento_salario": "2026-11-06"
+    },
+    {
+      "id": "E2",
+      "nome": "Malharia Fio Azul",
+      "segmento": "Indústria têxtil",
+      "qtd_funcionarios": 40,
+      "rh_nome": "Ana Paula Krüger",
+      "rh_cargo": "Analista de RH",
+      "rh_email": "ana.kruger@fioazul.exemplo",
+      "usa_rh_net": true,
+      "canal_preferido": "email",
+      "prazo_envio_rh": "2026-10-22",
+      "data_pagamento_salario": "2026-11-05",
+      "observacao": "Empresa tem 40 funcionários; o dataset traz uma amostra de 13."
+    },
+    {
+      "id": "E3",
+      "nome": "Clínica Odonto Sorriso",
+      "segmento": "Saúde / serviços",
+      "qtd_funcionarios": 7,
+      "rh_nome": "Juliana Costa",
+      "rh_cargo": "Gerente administrativa (acumula o RH)",
+      "rh_email": "juliana@odontosorriso.exemplo",
+      "usa_rh_net": true,
+      "canal_preferido": "whatsapp",
+      "prazo_envio_rh": "2026-10-21",
+      "data_pagamento_salario": "2026-11-05"
+    },
+    {
+      "id": "E4",
+      "nome": "TechNorte Software",
+      "segmento": "Tecnologia",
+      "qtd_funcionarios": 9,
+      "rh_nome": "Isabela Freitas",
+      "rh_cargo": "Coordenadora de pessoas",
+      "rh_email": "isabela@technorte.exemplo",
+      "usa_rh_net": true,
+      "canal_preferido": "rh_net",
+      "prazo_envio_rh": "2026-10-26",
+      "data_pagamento_salario": "2026-11-05"
+    }
+  ],
+  "funcionarios": [
+    {
+      "id": "F01",
+      "empresa_id": "E1",
+      "nome": "Marina Souza",
+      "cargo": "Atendente de balcão",
+      "setor": "Loja",
+      "data_admissao": "2024-03-11",
+      "salario_base": 2100,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "marina.souza@paodavila.exemplo",
+      "telefone": "(47) 90000-1000"
+    },
+    {
+      "id": "F02",
+      "empresa_id": "E1",
+      "nome": "José Carlos Pereira",
+      "cargo": "Padeiro",
+      "setor": "Produção",
+      "data_admissao": "2019-06-03",
+      "salario_base": 2800,
+      "situacao": "ativo",
+      "usa_app_rh_net": false,
+      "email": "jose.pereira@paodavila.exemplo",
+      "telefone": "(47) 90000-1001"
+    },
+    {
+      "id": "F03",
+      "empresa_id": "E1",
+      "nome": "Luana Fernandes",
+      "cargo": "Confeiteira",
+      "setor": "Produção",
+      "data_admissao": "2022-01-17",
+      "salario_base": 2500,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "luana.fernandes@paodavila.exemplo",
+      "telefone": "(47) 90000-1002"
+    },
+    {
+      "id": "F04",
+      "empresa_id": "E1",
+      "nome": "Rafael Antunes",
+      "cargo": "Auxiliar de padaria",
+      "setor": "Produção",
+      "data_admissao": "2025-08-04",
+      "salario_base": 1900,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "rafael.antunes@paodavila.exemplo",
+      "telefone": "(47) 90000-1003"
+    },
+    {
+      "id": "F05",
+      "empresa_id": "E1",
+      "nome": "Irene Schmitt",
+      "cargo": "Operadora de caixa",
+      "setor": "Loja",
+      "data_admissao": "2016-02-01",
+      "salario_base": 2200,
+      "situacao": "ativo",
+      "usa_app_rh_net": false,
+      "email": "irene.schmitt@paodavila.exemplo",
+      "telefone": "(47) 90000-1004"
+    },
+    {
+      "id": "F06",
+      "empresa_id": "E1",
+      "nome": "Kauã Oliveira",
+      "cargo": "Entregador",
+      "setor": "Loja",
+      "data_admissao": "2026-09-14",
+      "salario_base": 1950,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "kaua.oliveira@paodavila.exemplo",
+      "telefone": "(47) 90000-1005"
+    },
+    {
+      "id": "F07",
+      "empresa_id": "E1",
+      "nome": "Bianca Lopes",
+      "cargo": "Atendente de balcão",
+      "setor": "Loja",
+      "data_admissao": "2026-10-26",
+      "salario_base": 2100,
+      "situacao": "em_admissao",
+      "usa_app_rh_net": false,
+      "email": "bianca.lopes@paodavila.exemplo",
+      "telefone": "(47) 90000-1006"
+    },
+    {
+      "id": "F08",
+      "empresa_id": "E2",
+      "nome": "Ana Paula Krüger",
+      "cargo": "Analista de RH",
+      "setor": "Administrativo",
+      "data_admissao": "2018-04-02",
+      "salario_base": 4800,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "ana.kruger@fioazul.exemplo",
+      "telefone": "(47) 90000-1007"
+    },
+    {
+      "id": "F09",
+      "empresa_id": "E2",
+      "nome": "Roberto Hering",
+      "cargo": "Supervisor de produção",
+      "setor": "Produção",
+      "data_admissao": "2012-09-10",
+      "salario_base": 6200,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "roberto.hering@fioazul.exemplo",
+      "telefone": "(47) 90000-1008"
+    },
+    {
+      "id": "F10",
+      "empresa_id": "E2",
+      "nome": "Cláudia Werner",
+      "cargo": "Costureira",
+      "setor": "Confecção",
+      "data_admissao": "2015-03-16",
+      "salario_base": 2400,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "claudia.werner@fioazul.exemplo",
+      "telefone": "(47) 90000-1009"
+    },
+    {
+      "id": "F11",
+      "empresa_id": "E2",
+      "nome": "Tatiane Moser",
+      "cargo": "Costureira",
+      "setor": "Confecção",
+      "data_admissao": "2021-07-05",
+      "salario_base": 2400,
+      "situacao": "afastado",
+      "usa_app_rh_net": true,
+      "email": "tatiane.moser@fioazul.exemplo",
+      "telefone": "(47) 90000-1010"
+    },
+    {
+      "id": "F12",
+      "empresa_id": "E2",
+      "nome": "Edson Pfiffer",
+      "cargo": "Operador de tear",
+      "setor": "Tecelagem",
+      "data_admissao": "2017-11-20",
+      "salario_base": 2900,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "edson.pfiffer@fioazul.exemplo",
+      "telefone": "(47) 90000-1011"
+    },
+    {
+      "id": "F13",
+      "empresa_id": "E2",
+      "nome": "Jaqueline dos Santos",
+      "cargo": "Costureira",
+      "setor": "Confecção",
+      "data_admissao": "2023-02-06",
+      "salario_base": 2400,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "jaqueline.santos@fioazul.exemplo",
+      "telefone": "(47) 90000-1012"
+    },
+    {
+      "id": "F14",
+      "empresa_id": "E2",
+      "nome": "Marcos Vinícius Rocha",
+      "cargo": "Mecânico de manutenção",
+      "setor": "Manutenção",
+      "data_admissao": "2014-05-12",
+      "salario_base": 4100,
+      "situacao": "ativo",
+      "usa_app_rh_net": false,
+      "email": "marcos.rocha@fioazul.exemplo",
+      "telefone": "(47) 90000-1013"
+    },
+    {
+      "id": "F15",
+      "empresa_id": "E2",
+      "nome": "Priscila Hass",
+      "cargo": "Auxiliar de expedição",
+      "setor": "Expedição",
+      "data_admissao": "2020-10-01",
+      "salario_base": 2200,
+      "situacao": "ferias",
+      "usa_app_rh_net": true,
+      "email": "priscila.hass@fioazul.exemplo",
+      "telefone": "(47) 90000-1014"
+    },
+    {
+      "id": "F16",
+      "empresa_id": "E2",
+      "nome": "Gustavo Lenz",
+      "cargo": "Operador de tear",
+      "setor": "Tecelagem",
+      "data_admissao": "2022-08-15",
+      "salario_base": 2900,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "gustavo.lenz@fioazul.exemplo",
+      "telefone": "(47) 90000-1015"
+    },
+    {
+      "id": "F17",
+      "empresa_id": "E2",
+      "nome": "Simone Kleine",
+      "cargo": "Revisora de qualidade",
+      "setor": "Qualidade",
+      "data_admissao": "2019-01-21",
+      "salario_base": 2600,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "simone.kleine@fioazul.exemplo",
+      "telefone": "(47) 90000-1016"
+    },
+    {
+      "id": "F18",
+      "empresa_id": "E2",
+      "nome": "Diego Martins",
+      "cargo": "Auxiliar de produção",
+      "setor": "Produção",
+      "data_admissao": "2024-06-03",
+      "salario_base": 2100,
+      "situacao": "aviso_previo",
+      "usa_app_rh_net": true,
+      "email": "diego.martins@fioazul.exemplo",
+      "telefone": "(47) 90000-1017"
+    },
+    {
+      "id": "F19",
+      "empresa_id": "E2",
+      "nome": "Fernanda Zimmermann",
+      "cargo": "Assistente administrativa",
+      "setor": "Administrativo",
+      "data_admissao": "2021-03-08",
+      "salario_base": 3000,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "fernanda.zimmermann@fioazul.exemplo",
+      "telefone": "(47) 90000-1018"
+    },
+    {
+      "id": "F20",
+      "empresa_id": "E2",
+      "nome": "Lucas Batista",
+      "cargo": "Jovem aprendiz",
+      "setor": "Administrativo",
+      "data_admissao": "2026-02-02",
+      "salario_base": 1100,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "lucas.batista@fioazul.exemplo",
+      "telefone": "(47) 90000-1019"
+    },
+    {
+      "id": "F21",
+      "empresa_id": "E3",
+      "nome": "Helena Duarte",
+      "cargo": "Cirurgiã-dentista",
+      "setor": "Clínico",
+      "data_admissao": "2020-02-03",
+      "salario_base": 7500,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "helena.duarte@odontosorriso.exemplo",
+      "telefone": "(47) 90000-1020"
+    },
+    {
+      "id": "F22",
+      "empresa_id": "E3",
+      "nome": "Camila Reis",
+      "cargo": "Recepcionista",
+      "setor": "Recepção",
+      "data_admissao": "2023-05-15",
+      "salario_base": 2300,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "camila.reis@odontosorriso.exemplo",
+      "telefone": "(47) 90000-1021"
+    },
+    {
+      "id": "F23",
+      "empresa_id": "E3",
+      "nome": "Patrícia Vieira",
+      "cargo": "Auxiliar de saúde bucal",
+      "setor": "Clínico",
+      "data_admissao": "2022-09-12",
+      "salario_base": 2500,
+      "situacao": "ativo",
+      "usa_app_rh_net": false,
+      "email": "patricia.vieira@odontosorriso.exemplo",
+      "telefone": "(47) 90000-1022"
+    },
+    {
+      "id": "F24",
+      "empresa_id": "E3",
+      "nome": "Thiago Moretti",
+      "cargo": "Técnico em saúde bucal",
+      "setor": "Clínico",
+      "data_admissao": "2021-11-08",
+      "salario_base": 3100,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "thiago.moretti@odontosorriso.exemplo",
+      "telefone": "(47) 90000-1023"
+    },
+    {
+      "id": "F25",
+      "empresa_id": "E3",
+      "nome": "Juliana Costa",
+      "cargo": "Gerente administrativa",
+      "setor": "Administrativo",
+      "data_admissao": "2017-03-01",
+      "salario_base": 4500,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "juliana.costa@odontosorriso.exemplo",
+      "telefone": "(47) 90000-1024"
+    },
+    {
+      "id": "F26",
+      "empresa_id": "E3",
+      "nome": "Sabrina Melo",
+      "cargo": "Auxiliar de saúde bucal",
+      "setor": "Clínico",
+      "data_admissao": "2024-01-22",
+      "salario_base": 2500,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "sabrina.melo@odontosorriso.exemplo",
+      "telefone": "(47) 90000-1025"
+    },
+    {
+      "id": "F27",
+      "empresa_id": "E3",
+      "nome": "Renata Gonçalves",
+      "cargo": "Auxiliar de limpeza",
+      "setor": "Apoio",
+      "data_admissao": "2019-08-05",
+      "salario_base": 1850,
+      "situacao": "ativo",
+      "usa_app_rh_net": false,
+      "email": "renata.goncalves@odontosorriso.exemplo",
+      "telefone": "(47) 90000-1026"
+    },
+    {
+      "id": "F28",
+      "empresa_id": "E4",
+      "nome": "Bruno Schneider",
+      "cargo": "Desenvolvedor pleno",
+      "setor": "Engenharia",
+      "data_admissao": "2022-04-04",
+      "salario_base": 8500,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "bruno.schneider@technorte.exemplo",
+      "telefone": "(47) 90000-1027"
+    },
+    {
+      "id": "F29",
+      "empresa_id": "E4",
+      "nome": "Larissa Teixeira",
+      "cargo": "Analista de QA",
+      "setor": "Engenharia",
+      "data_admissao": "2023-03-13",
+      "salario_base": 6000,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "larissa.teixeira@technorte.exemplo",
+      "telefone": "(47) 90000-1028"
+    },
+    {
+      "id": "F30",
+      "empresa_id": "E4",
+      "nome": "Henrique Alves",
+      "cargo": "Desenvolvedor júnior",
+      "setor": "Engenharia",
+      "data_admissao": "2025-02-10",
+      "salario_base": 4800,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "henrique.alves@technorte.exemplo",
+      "telefone": "(47) 90000-1029"
+    },
+    {
+      "id": "F31",
+      "empresa_id": "E4",
+      "nome": "Gabriela Nunes",
+      "cargo": "Designer UX",
+      "setor": "Produto",
+      "data_admissao": "2022-10-03",
+      "salario_base": 6500,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "gabriela.nunes@technorte.exemplo",
+      "telefone": "(47) 90000-1030"
+    },
+    {
+      "id": "F32",
+      "empresa_id": "E4",
+      "nome": "Otávio Ramos",
+      "cargo": "Analista de suporte",
+      "setor": "Suporte",
+      "data_admissao": "2024-07-01",
+      "salario_base": 3800,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "otavio.ramos@technorte.exemplo",
+      "telefone": "(47) 90000-1031"
+    },
+    {
+      "id": "F33",
+      "empresa_id": "E4",
+      "nome": "Isabela Freitas",
+      "cargo": "Coordenadora de pessoas",
+      "setor": "Pessoas",
+      "data_admissao": "2020-01-06",
+      "salario_base": 7000,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "isabela.freitas@technorte.exemplo",
+      "telefone": "(47) 90000-1032"
+    },
+    {
+      "id": "F34",
+      "empresa_id": "E4",
+      "nome": "Matheus Kuhn",
+      "cargo": "Desenvolvedor sênior",
+      "setor": "Engenharia",
+      "data_admissao": "2019-05-20",
+      "salario_base": 12000,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "matheus.kuhn@technorte.exemplo",
+      "telefone": "(47) 90000-1033"
+    },
+    {
+      "id": "F35",
+      "empresa_id": "E4",
+      "nome": "Yasmin Carvalho",
+      "cargo": "Analista de suporte",
+      "setor": "Suporte",
+      "data_admissao": "2025-06-02",
+      "salario_base": 3800,
+      "situacao": "ativo",
+      "usa_app_rh_net": true,
+      "email": "yasmin.carvalho@technorte.exemplo",
+      "telefone": "(47) 90000-1034"
+    },
+    {
+      "id": "F36",
+      "empresa_id": "E4",
+      "nome": "Pedro Henrique Lima",
+      "cargo": "Analista DevOps",
+      "setor": "Engenharia",
+      "data_admissao": "2021-08-16",
+      "salario_base": 9500,
+      "situacao": "ferias",
+      "usa_app_rh_net": true,
+      "email": "pedro.lima@technorte.exemplo",
+      "telefone": "(47) 90000-1035"
+    }
+  ],
+  "pendencias": [
+    {
+      "id": "P001",
+      "empresa_id": "E1",
+      "funcionario_id": "F01",
+      "tipo": "duvida_holerite",
+      "titulo": "Por que meu salário de setembro veio menor?",
+      "descricao": "Marina recebeu cerca de R$ 130 a menos em setembro e não sabe o motivo.",
+      "aberta_por": "funcionario",
+      "responsavel": "rh",
+      "status": "aguardando_rh",
+      "criada_em": "2026-10-06",
+      "prazo": null,
+      "resolvida_em": null,
+      "canal_origem": "whatsapp",
+      "bloqueia_fechamento": false,
+      "relacionada_a": [
+        "P002"
+      ],
+      "historico": [
+        {
+          "data": "2026-10-06",
+          "autor": "Marina Souza",
+          "papel": "funcionario",
+          "canal": "whatsapp",
+          "mensagem": "Seu Valdir, meu salário veio uns 130 reais a menos esse mês, o que aconteceu?"
+        },
+        {
+          "data": "2026-10-06",
+          "autor": "Valdir Machado",
+          "papel": "rh",
+          "canal": "whatsapp",
+          "mensagem": "Vou ver com a contabilidade e te falo."
+        },
+        {
+          "data": "2026-10-13",
+          "autor": "Marina Souza",
+          "papel": "funcionario",
+          "canal": "whatsapp",
+          "mensagem": "Conseguiu ver aquilo do salário?"
+        }
+      ]
+    },
+    {
+      "id": "P002",
+      "empresa_id": "E1",
+      "funcionario_id": "F01",
+      "tipo": "atestado",
+      "titulo": "Atestado de 15/09 não chegou a contabilidade",
+      "descricao": "Marina mandou foto do atestado ao Valdir pelo WhatsApp, mas ele não repassou. A falta foi descontada na folha de setembro.",
+      "aberta_por": "contabilidade",
+      "responsavel": "rh",
+      "status": "aguardando_rh",
+      "criada_em": "2026-09-30",
+      "prazo": "2026-10-23",
+      "resolvida_em": null,
+      "canal_origem": "email",
+      "bloqueia_fechamento": false,
+      "relacionada_a": [
+        "P001"
+      ],
+      "historico": [
+        {
+          "data": "2026-09-15",
+          "autor": "Marina Souza",
+          "papel": "funcionario",
+          "canal": "whatsapp",
+          "mensagem": "Seu Valdir, segue a foto do atestado de hoje."
+        },
+        {
+          "data": "2026-09-30",
+          "autor": "Carlos Eduardo Sens",
+          "papel": "contabilidade",
+          "canal": "email",
+          "mensagem": "Valdir, consta falta da Marina em 15/09 sem justificativa. Vamos descontar na folha de setembro. Se houver atestado, nos envie."
+        },
+        {
+          "data": "2026-10-14",
+          "autor": "Carlos Eduardo Sens",
+          "papel": "contabilidade",
+          "canal": "email",
+          "mensagem": "Valdir, se o atestado da Marina for enviado até 23/10, devolvemos o desconto na folha de outubro."
+        }
+      ]
+    },
+    {
+      "id": "P003",
+      "empresa_id": "E1",
+      "funcionario_id": "F06",
+      "tipo": "dados_bancarios",
+      "titulo": "Conta para depósito do salário não informada",
+      "descricao": "Kauã foi admitido em setembro e ainda não informou a conta bancária. O salário de setembro foi pago em espécie.",
+      "aberta_por": "contabilidade",
+      "responsavel": "funcionario",
+      "status": "aguardando_funcionario",
+      "criada_em": "2026-09-28",
+      "prazo": "2026-10-23",
+      "resolvida_em": null,
+      "canal_origem": "email",
+      "bloqueia_fechamento": true,
+      "historico": [
+        {
+          "data": "2026-09-28",
+          "autor": "Carlos Eduardo Sens",
+          "papel": "contabilidade",
+          "canal": "email",
+          "mensagem": "Valdir, o Kauã não tem conta bancária cadastrada. Precisamos de banco, agência e conta."
+        },
+        {
+          "data": "2026-09-29",
+          "autor": "Valdir Machado",
+          "papel": "rh",
+          "canal": "whatsapp",
+          "mensagem": "Kauã, manda pra mim os dados da tua conta."
+        },
+        {
+          "data": "2026-10-08",
+          "autor": "Valdir Machado",
+          "papel": "rh",
+          "canal": "whatsapp",
+          "mensagem": "Kauã, e a conta?"
+        }
+      ]
+    },
+    {
+      "id": "P004",
+      "empresa_id": "E1",
+      "funcionario_id": "F07",
+      "tipo": "admissao",
+      "titulo": "Admissão da Bianca: faltam exame admissional e CTPS digital",
+      "descricao": "Bianca começa em 26/10. A admissão precisa ser registrada antes do primeiro dia de trabalho.",
+      "aberta_por": "contabilidade",
+      "responsavel": "rh",
+      "status": "aguardando_rh",
+      "criada_em": "2026-10-15",
+      "prazo": "2026-10-23",
+      "resolvida_em": null,
+      "canal_origem": "email",
+      "bloqueia_fechamento": true,
+      "historico": [
+        {
+          "data": "2026-10-14",
+          "autor": "Valdir Machado",
+          "papel": "rh",
+          "canal": "telefone",
+          "mensagem": "Contratei uma atendente nova, começa dia 26. Te mando os documentos."
+        },
+        {
+          "data": "2026-10-15",
+          "autor": "Carlos Eduardo Sens",
+          "papel": "contabilidade",
+          "canal": "email",
+          "mensagem": "Valdir, recebi RG e CPF da Bianca. Faltam o exame admissional (ASO) e o print da CTPS digital."
+        }
+      ]
+    },
+    {
+      "id": "P005",
+      "empresa_id": "E1",
+      "funcionario_id": "F02",
+      "tipo": "horas_extras",
+      "titulo": "Informar horas extras do feriado de 12/10",
+      "descricao": "José Carlos trabalhou no feriado. A contabilidade precisa da quantidade de horas para pagar.",
+      "aberta_por": "contabilidade",
+      "responsavel": "rh",
+      "status": "aberta",
+      "criada_em": "2026-10-16",
+      "prazo": "2026-10-23",
+      "resolvida_em": null,
+      "canal_origem": "telefone",
+      "bloqueia_fechamento": true,
+      "historico": [
+        {
+          "data": "2026-10-16",
+          "autor": "Carlos Eduardo Sens",
+          "papel": "contabilidade",
+          "canal": "telefone",
+          "mensagem": "(ligação) Pediu ao Valdir as horas trabalhadas no feriado de 12/10. Valdir disse que ia olhar o caderno de ponto."
+        }
+      ]
+    },
+    {
+      "id": "P006",
+      "empresa_id": "E1",
+      "funcionario_id": "F03",
+      "tipo": "ferias",
+      "titulo": "Pedido de férias a partir de 01/12",
+      "descricao": "Luana pediu férias de 30 dias a partir de 01/12. O pedido foi feito de boca e não foi registrado.",
+      "aberta_por": "funcionario",
+      "responsavel": "rh",
+      "status": "aberta",
+      "criada_em": "2026-10-10",
+      "prazo": "2026-10-31",
+      "resolvida_em": null,
+      "canal_origem": "presencial",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-10",
+          "autor": "Luana Fernandes",
+          "papel": "funcionario",
+          "canal": "presencial",
+          "mensagem": "(conversa no balcão) Pediu férias a partir de 1º de dezembro. Valdir disse que 'deve dar'."
+        }
+      ]
+    },
+    {
+      "id": "P007",
+      "empresa_id": "E1",
+      "funcionario_id": "F05",
+      "tipo": "duvida_beneficio",
+      "titulo": "Quanto vou receber de 13º e quando?",
+      "descricao": "Irene quer saber o valor e as datas da 1ª e 2ª parcelas do 13º salário.",
+      "aberta_por": "funcionario",
+      "responsavel": "rh",
+      "status": "aberta",
+      "criada_em": "2026-10-16",
+      "prazo": null,
+      "resolvida_em": null,
+      "canal_origem": "telefone",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-16",
+          "autor": "Irene Schmitt",
+          "papel": "funcionario",
+          "canal": "telefone",
+          "mensagem": "Perguntou ao Valdir quanto vai receber de 13º. Ele não soube responder."
+        }
+      ]
+    },
+    {
+      "id": "P008",
+      "empresa_id": "E2",
+      "funcionario_id": "F18",
+      "tipo": "rescisao",
+      "titulo": "Rescisão do Diego: aviso prévio termina em 30/10",
+      "descricao": "Desligamento sem justa causa com aviso prévio trabalhado. A contabilidade precisa calcular a rescisão.",
+      "aberta_por": "rh",
+      "responsavel": "contabilidade",
+      "status": "aguardando_contabilidade",
+      "criada_em": "2026-10-01",
+      "prazo": "2026-11-09",
+      "resolvida_em": null,
+      "canal_origem": "rh_net",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-01",
+          "autor": "Ana Paula Krüger",
+          "papel": "rh",
+          "canal": "rh_net",
+          "mensagem": "Lançado desligamento do Diego Martins, aviso trabalhado até 30/10."
+        },
+        {
+          "data": "2026-10-05",
+          "autor": "Carlos Eduardo Sens",
+          "papel": "contabilidade",
+          "canal": "email",
+          "mensagem": "Ana, o aviso é com redução de 2h por dia ou 7 dias corridos no final?"
+        },
+        {
+          "data": "2026-10-06",
+          "autor": "Ana Paula Krüger",
+          "papel": "rh",
+          "canal": "email",
+          "mensagem": "7 dias corridos no final."
+        }
+      ]
+    },
+    {
+      "id": "P009",
+      "empresa_id": "E2",
+      "funcionario_id": "F15",
+      "tipo": "ferias",
+      "titulo": "Recibo de férias assinado não foi devolvido",
+      "descricao": "Priscila está de férias (05/10 a 24/10). O recibo de férias precisa voltar assinado.",
+      "aberta_por": "contabilidade",
+      "responsavel": "funcionario",
+      "status": "aguardando_funcionario",
+      "criada_em": "2026-10-02",
+      "prazo": "2026-10-27",
+      "resolvida_em": null,
+      "canal_origem": "email",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-02",
+          "autor": "Carlos Eduardo Sens",
+          "papel": "contabilidade",
+          "canal": "email",
+          "mensagem": "Ana, segue recibo de férias da Priscila para assinatura."
+        },
+        {
+          "data": "2026-10-03",
+          "autor": "Ana Paula Krüger",
+          "papel": "rh",
+          "canal": "whatsapp",
+          "mensagem": "Priscila, quando voltar me procura pra assinar o recibo de férias, ok?"
+        }
+      ]
+    },
+    {
+      "id": "P010",
+      "empresa_id": "E2",
+      "funcionario_id": "F11",
+      "tipo": "afastamento",
+      "titulo": "Licença-maternidade: enviar certidão de nascimento",
+      "descricao": "Tatiane está em licença-maternidade. Falta a certidão de nascimento para concluir o registro do afastamento.",
+      "aberta_por": "rh",
+      "responsavel": "funcionario",
+      "status": "aguardando_funcionario",
+      "criada_em": "2026-10-08",
+      "prazo": "2026-10-22",
+      "resolvida_em": null,
+      "canal_origem": "whatsapp",
+      "bloqueia_fechamento": true,
+      "historico": [
+        {
+          "data": "2026-10-08",
+          "autor": "Ana Paula Krüger",
+          "papel": "rh",
+          "canal": "whatsapp",
+          "mensagem": "Tati, parabéns! Quando puder, me manda a foto da certidão de nascimento."
+        },
+        {
+          "data": "2026-10-16",
+          "autor": "Ana Paula Krüger",
+          "papel": "rh",
+          "canal": "whatsapp",
+          "mensagem": "Tati, consegue mandar a certidão essa semana? A contabilidade precisa até dia 22."
+        }
+      ]
+    },
+    {
+      "id": "P011",
+      "empresa_id": "E2",
+      "funcionario_id": "F12",
+      "tipo": "dados_bancarios",
+      "titulo": "Troca de conta bancária",
+      "descricao": "Edson abriu conta em outro banco e vai encerrar a antiga. Se não atualizar a tempo, o salário cai na conta encerrada.",
+      "aberta_por": "funcionario",
+      "responsavel": "funcionario",
+      "status": "aguardando_funcionario",
+      "criada_em": "2026-10-14",
+      "prazo": "2026-10-22",
+      "resolvida_em": null,
+      "canal_origem": "whatsapp",
+      "bloqueia_fechamento": true,
+      "historico": [
+        {
+          "data": "2026-10-14",
+          "autor": "Edson Pfiffer",
+          "papel": "funcionario",
+          "canal": "whatsapp",
+          "mensagem": "Ana, troquei de banco, os dados novos são: banco 999, ag 0001, conta 12345-6."
+        },
+        {
+          "data": "2026-10-15",
+          "autor": "Ana Paula Krüger",
+          "papel": "rh",
+          "canal": "email",
+          "mensagem": "Carlos, segue a conta nova do Edson."
+        },
+        {
+          "data": "2026-10-15",
+          "autor": "Carlos Eduardo Sens",
+          "papel": "contabilidade",
+          "canal": "email",
+          "mensagem": "Ana, precisamos de um comprovante de que a conta é dele (print do app do banco com o nome)."
+        },
+        {
+          "data": "2026-10-15",
+          "autor": "Ana Paula Krüger",
+          "papel": "rh",
+          "canal": "whatsapp",
+          "mensagem": "Edson, manda um print do app do banco mostrando teu nome e a conta."
+        }
+      ]
+    },
+    {
+      "id": "P012",
+      "empresa_id": "E2",
+      "funcionario_id": "F13",
+      "tipo": "duvida_holerite",
+      "titulo": "Desconto de vale-transporte mudou",
+      "descricao": "Jaqueline estranhou o valor do desconto de vale-transporte.",
+      "aberta_por": "funcionario",
+      "responsavel": "rh",
+      "status": "resolvida",
+      "criada_em": "2026-10-07",
+      "prazo": null,
+      "resolvida_em": "2026-10-09",
+      "canal_origem": "presencial",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-07",
+          "autor": "Jaqueline dos Santos",
+          "papel": "funcionario",
+          "canal": "presencial",
+          "mensagem": "Perguntou por que o desconto do VT aumentou."
+        },
+        {
+          "data": "2026-10-09",
+          "autor": "Ana Paula Krüger",
+          "papel": "rh",
+          "canal": "presencial",
+          "mensagem": "Explicou que ela passou a usar duas linhas de ônibus e o desconto é de até 6% do salário."
+        }
+      ]
+    },
+    {
+      "id": "P013",
+      "empresa_id": "E2",
+      "funcionario_id": "F16",
+      "tipo": "ponto",
+      "titulo": "Ajuste de batida esquecida em 08/10",
+      "descricao": "Gustavo esqueceu de bater a saída do almoço. Pediu o ajuste pelo app.",
+      "aberta_por": "funcionario",
+      "responsavel": "rh",
+      "status": "aberta",
+      "criada_em": "2026-10-09",
+      "prazo": "2026-10-22",
+      "resolvida_em": null,
+      "canal_origem": "rh_net",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-09",
+          "autor": "Gustavo Lenz",
+          "papel": "funcionario",
+          "canal": "rh_net",
+          "mensagem": "Solicito ajuste: saída para almoço em 08/10 as 12:00."
+        }
+      ]
+    },
+    {
+      "id": "P014",
+      "empresa_id": "E2",
+      "funcionario_id": "F09",
+      "tipo": "horas_extras",
+      "titulo": "Planilha de horas extras do turno de sábado",
+      "descricao": "A produção fez turnos extras aos sábados em outubro. O supervisor precisa passar as horas ao RH.",
+      "aberta_por": "contabilidade",
+      "responsavel": "rh",
+      "status": "aguardando_rh",
+      "criada_em": "2026-10-16",
+      "prazo": "2026-10-22",
+      "resolvida_em": null,
+      "canal_origem": "email",
+      "bloqueia_fechamento": true,
+      "historico": [
+        {
+          "data": "2026-10-16",
+          "autor": "Carlos Eduardo Sens",
+          "papel": "contabilidade",
+          "canal": "email",
+          "mensagem": "Ana, precisamos das horas extras dos sábados de outubro até dia 22."
+        },
+        {
+          "data": "2026-10-17",
+          "autor": "Ana Paula Krüger",
+          "papel": "rh",
+          "canal": "email",
+          "mensagem": "Carlos, estou esperando o Roberto me passar a planilha."
+        },
+        {
+          "data": "2026-10-17",
+          "autor": "Ana Paula Krüger",
+          "papel": "rh",
+          "canal": "whatsapp",
+          "mensagem": "Roberto, preciso da planilha dos sábados até quarta."
+        }
+      ]
+    },
+    {
+      "id": "P015",
+      "empresa_id": "E2",
+      "funcionario_id": "F20",
+      "tipo": "duvida_beneficio",
+      "titulo": "Jovem aprendiz recebe 13º?",
+      "descricao": "Lucas quer saber se recebe 13º e quanto, já que entrou em fevereiro.",
+      "aberta_por": "funcionario",
+      "responsavel": "contabilidade",
+      "status": "aguardando_contabilidade",
+      "criada_em": "2026-10-13",
+      "prazo": null,
+      "resolvida_em": null,
+      "canal_origem": "whatsapp",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-13",
+          "autor": "Lucas Batista",
+          "papel": "funcionario",
+          "canal": "whatsapp",
+          "mensagem": "Ana, aprendiz ganha 13º? Quanto vou receber?"
+        },
+        {
+          "data": "2026-10-13",
+          "autor": "Ana Paula Krüger",
+          "papel": "rh",
+          "canal": "email",
+          "mensagem": "Carlos, consegue me passar o valor estimado do 13º do Lucas?"
+        }
+      ]
+    },
+    {
+      "id": "P016",
+      "empresa_id": "E2",
+      "funcionario_id": "F19",
+      "tipo": "dependente",
+      "titulo": "Inclusão de dependente (filho nascido em setembro)",
+      "descricao": "Fernanda quer incluir o filho como dependente.",
+      "aberta_por": "funcionario",
+      "responsavel": "contabilidade",
+      "status": "aguardando_contabilidade",
+      "criada_em": "2026-10-05",
+      "prazo": "2026-10-22",
+      "resolvida_em": null,
+      "canal_origem": "email",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-05",
+          "autor": "Fernanda Zimmermann",
+          "papel": "funcionario",
+          "canal": "email",
+          "mensagem": "Ana, segue certidão do meu filho para incluir como dependente."
+        },
+        {
+          "data": "2026-10-06",
+          "autor": "Ana Paula Krüger",
+          "papel": "rh",
+          "canal": "rh_net",
+          "mensagem": "Lançado pedido de inclusão de dependente com certidão anexa."
+        }
+      ]
+    },
+    {
+      "id": "P017",
+      "empresa_id": "E2",
+      "funcionario_id": "F17",
+      "tipo": "ferias",
+      "titulo": "Pedido de férias para janeiro",
+      "descricao": "Simone pediu 20 dias de férias a partir de 11/01/2027.",
+      "aberta_por": "funcionario",
+      "responsavel": "rh",
+      "status": "aberta",
+      "criada_em": "2026-10-12",
+      "prazo": "2026-11-30",
+      "resolvida_em": null,
+      "canal_origem": "rh_net",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-12",
+          "autor": "Simone Kleine",
+          "papel": "funcionario",
+          "canal": "rh_net",
+          "mensagem": "Gostaria de tirar 20 dias de férias a partir de 11/01/2027."
+        }
+      ]
+    },
+    {
+      "id": "P018",
+      "empresa_id": "E2",
+      "funcionario_id": null,
+      "tipo": "documento_empresa",
+      "titulo": "Enviar convenção coletiva 2026 (reajuste do sindicato)",
+      "descricao": "O sindicato dos trabalhadores teve reajuste salarial em outubro. Sem a convenção, a folha sai com salários desatualizados.",
+      "aberta_por": "contabilidade",
+      "responsavel": "rh",
+      "status": "aguardando_rh",
+      "criada_em": "2026-09-30",
+      "prazo": "2026-10-22",
+      "resolvida_em": null,
+      "canal_origem": "email",
+      "bloqueia_fechamento": true,
+      "historico": [
+        {
+          "data": "2026-09-30",
+          "autor": "Carlos Eduardo Sens",
+          "papel": "contabilidade",
+          "canal": "email",
+          "mensagem": "Ana, saiu a convenção coletiva nova? O reajuste vale a partir de outubro."
+        },
+        {
+          "data": "2026-10-09",
+          "autor": "Carlos Eduardo Sens",
+          "papel": "contabilidade",
+          "canal": "email",
+          "mensagem": "Ana, reforçando o pedido da convenção coletiva."
+        }
+      ]
+    },
+    {
+      "id": "P019",
+      "empresa_id": "E3",
+      "funcionario_id": "F24",
+      "tipo": "horas_extras",
+      "titulo": "Confirmar horas extras do mutirão (01 a 15/10)",
+      "descricao": "A folha da clínica já foi enviada, mas as horas extras do mutirão vieram sem aprovação. O processamento está parado.",
+      "aberta_por": "contabilidade",
+      "responsavel": "rh",
+      "status": "aguardando_rh",
+      "criada_em": "2026-10-19",
+      "prazo": "2026-10-21",
+      "resolvida_em": null,
+      "canal_origem": "rh_net",
+      "bloqueia_fechamento": true,
+      "historico": [
+        {
+          "data": "2026-10-17",
+          "autor": "Juliana Costa",
+          "papel": "rh",
+          "canal": "rh_net",
+          "mensagem": "Informações de outubro enviadas."
+        },
+        {
+          "data": "2026-10-19",
+          "autor": "Carlos Eduardo Sens",
+          "papel": "contabilidade",
+          "canal": "rh_net",
+          "mensagem": "Juliana, o Thiago tem 22h extras lançadas sem aprovação. Confirma? A folha está parada aguardando."
+        }
+      ]
+    },
+    {
+      "id": "P020",
+      "empresa_id": "E3",
+      "funcionario_id": "F22",
+      "tipo": "dados_bancarios",
+      "titulo": "Atualização de conta salário",
+      "descricao": "Camila informou conta nova pelo app, com comprovante.",
+      "aberta_por": "funcionario",
+      "responsavel": "contabilidade",
+      "status": "resolvida",
+      "criada_em": "2026-10-10",
+      "prazo": "2026-10-21",
+      "resolvida_em": "2026-10-12",
+      "canal_origem": "rh_net",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-10",
+          "autor": "Camila Reis",
+          "papel": "funcionario",
+          "canal": "rh_net",
+          "mensagem": "Atualizei minha conta e anexei o comprovante."
+        },
+        {
+          "data": "2026-10-12",
+          "autor": "Carlos Eduardo Sens",
+          "papel": "contabilidade",
+          "canal": "rh_net",
+          "mensagem": "Conta atualizada. Vale a partir da folha de outubro."
+        }
+      ]
+    },
+    {
+      "id": "P021",
+      "empresa_id": "E3",
+      "funcionario_id": "F23",
+      "tipo": "duvida_holerite",
+      "titulo": "Insalubridade não apareceu no holerite",
+      "descricao": "Patrícia achou que não recebeu insalubridade. A contabilidade respondeu ao RH, mas a resposta nunca chegou a ela.",
+      "aberta_por": "funcionario",
+      "responsavel": "rh",
+      "status": "aguardando_rh",
+      "criada_em": "2026-10-02",
+      "prazo": null,
+      "resolvida_em": null,
+      "canal_origem": "whatsapp",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-02",
+          "autor": "Patrícia Vieira",
+          "papel": "funcionario",
+          "canal": "whatsapp",
+          "mensagem": "Ju, não veio minha insalubridade esse mês!"
+        },
+        {
+          "data": "2026-10-03",
+          "autor": "Juliana Costa",
+          "papel": "rh",
+          "canal": "email",
+          "mensagem": "Carlos, a Patrícia diz que não recebeu insalubridade em setembro."
+        },
+        {
+          "data": "2026-10-04",
+          "autor": "Carlos Eduardo Sens",
+          "papel": "contabilidade",
+          "canal": "email",
+          "mensagem": "Juliana, foi pago sim: é a linha 'Adic. Insalub. Grau Médio' no holerite."
+        },
+        {
+          "data": "2026-10-15",
+          "autor": "Patrícia Vieira",
+          "papel": "funcionario",
+          "canal": "whatsapp",
+          "mensagem": "Ju, e a insalubridade?"
+        }
+      ]
+    },
+    {
+      "id": "P022",
+      "empresa_id": "E3",
+      "funcionario_id": "F26",
+      "tipo": "atestado",
+      "titulo": "Atestado de 2 dias (13 e 14/10)",
+      "descricao": "Sabrina enviou o atestado pelo app no mesmo dia. Exemplo de fluxo que funcionou.",
+      "aberta_por": "funcionario",
+      "responsavel": "rh",
+      "status": "resolvida",
+      "criada_em": "2026-10-15",
+      "prazo": "2026-10-21",
+      "resolvida_em": "2026-10-16",
+      "canal_origem": "rh_net",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-15",
+          "autor": "Sabrina Melo",
+          "papel": "funcionario",
+          "canal": "rh_net",
+          "mensagem": "Atestado anexado (13 e 14/10)."
+        },
+        {
+          "data": "2026-10-16",
+          "autor": "Juliana Costa",
+          "papel": "rh",
+          "canal": "rh_net",
+          "mensagem": "Atestado validado e enviado."
+        }
+      ]
+    },
+    {
+      "id": "P023",
+      "empresa_id": "E3",
+      "funcionario_id": "F27",
+      "tipo": "ferias",
+      "titulo": "Férias de novembro: emitir aviso e recibo",
+      "descricao": "Férias de Renata de 09/11 a 28/11. O pagamento precisa sair até 2 dias antes do início.",
+      "aberta_por": "rh",
+      "responsavel": "contabilidade",
+      "status": "aguardando_contabilidade",
+      "criada_em": "2026-10-08",
+      "prazo": "2026-11-05",
+      "resolvida_em": null,
+      "canal_origem": "rh_net",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-08",
+          "autor": "Juliana Costa",
+          "papel": "rh",
+          "canal": "rh_net",
+          "mensagem": "Programadas férias da Renata: 09/11 a 28/11."
+        }
+      ]
+    },
+    {
+      "id": "P024",
+      "empresa_id": "E4",
+      "funcionario_id": "F28",
+      "tipo": "duvida_holerite",
+      "titulo": "A PLR vai ter desconto de imposto?",
+      "descricao": "Bruno quer saber se a participação nos lucros terá desconto de IR.",
+      "aberta_por": "funcionario",
+      "responsavel": "contabilidade",
+      "status": "aguardando_contabilidade",
+      "criada_em": "2026-10-13",
+      "prazo": null,
+      "resolvida_em": null,
+      "canal_origem": "email",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-13",
+          "autor": "Bruno Schneider",
+          "papel": "funcionario",
+          "canal": "email",
+          "mensagem": "Isabela, a PLR de novembro tem desconto de IR?"
+        },
+        {
+          "data": "2026-10-13",
+          "autor": "Isabela Freitas",
+          "papel": "rh",
+          "canal": "email",
+          "mensagem": "Carlos, consegue responder essa do Bruno?"
+        }
+      ]
+    },
+    {
+      "id": "P025",
+      "empresa_id": "E4",
+      "funcionario_id": "F30",
+      "tipo": "cadastro",
+      "titulo": "Atualização de endereço",
+      "descricao": "Henrique mudou de cidade e atualizou o endereço pelo app.",
+      "aberta_por": "funcionario",
+      "responsavel": "rh",
+      "status": "resolvida",
+      "criada_em": "2026-10-11",
+      "prazo": null,
+      "resolvida_em": "2026-10-11",
+      "canal_origem": "rh_net",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-11",
+          "autor": "Henrique Alves",
+          "papel": "funcionario",
+          "canal": "rh_net",
+          "mensagem": "Atualizei meu endereço."
+        },
+        {
+          "data": "2026-10-11",
+          "autor": "Isabela Freitas",
+          "papel": "rh",
+          "canal": "rh_net",
+          "mensagem": "Aprovado."
+        }
+      ]
+    },
+    {
+      "id": "P026",
+      "empresa_id": "E4",
+      "funcionario_id": "F31",
+      "tipo": "ferias",
+      "titulo": "Férias de 03/11 a 22/11",
+      "descricao": "Férias programadas. A contabilidade precisa calcular e o pagamento sai até 2 dias antes.",
+      "aberta_por": "rh",
+      "responsavel": "contabilidade",
+      "status": "aguardando_contabilidade",
+      "criada_em": "2026-10-01",
+      "prazo": "2026-10-30",
+      "resolvida_em": null,
+      "canal_origem": "rh_net",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-01",
+          "autor": "Isabela Freitas",
+          "papel": "rh",
+          "canal": "rh_net",
+          "mensagem": "Programadas férias da Gabriela: 03/11 a 22/11."
+        }
+      ]
+    },
+    {
+      "id": "P027",
+      "empresa_id": "E4",
+      "funcionario_id": "F35",
+      "tipo": "duvida_ponto",
+      "titulo": "Por que meu banco de horas está negativo?",
+      "descricao": "Yasmin viu saldo negativo no app e não entende de onde veio.",
+      "aberta_por": "funcionario",
+      "responsavel": "rh",
+      "status": "aberta",
+      "criada_em": "2026-10-16",
+      "prazo": null,
+      "resolvida_em": null,
+      "canal_origem": "whatsapp",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-16",
+          "autor": "Yasmin Carvalho",
+          "papel": "funcionario",
+          "canal": "whatsapp",
+          "mensagem": "Isa, meu banco de horas tá -6h, não entendi."
+        }
+      ]
+    },
+    {
+      "id": "P028",
+      "empresa_id": "E4",
+      "funcionario_id": "F32",
+      "tipo": "atestado",
+      "titulo": "Atestado de 1 dia (19/10)",
+      "descricao": "Otávio mandou foto do atestado pelo WhatsApp em vez de usar o app.",
+      "aberta_por": "funcionario",
+      "responsavel": "rh",
+      "status": "aberta",
+      "criada_em": "2026-10-20",
+      "prazo": "2026-10-26",
+      "resolvida_em": null,
+      "canal_origem": "whatsapp",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-20",
+          "autor": "Otávio Ramos",
+          "papel": "funcionario",
+          "canal": "whatsapp",
+          "mensagem": "Isa, segue atestado de ontem (foto)."
+        }
+      ]
+    },
+    {
+      "id": "P029",
+      "empresa_id": "E4",
+      "funcionario_id": "F34",
+      "tipo": "alteracao_salarial",
+      "titulo": "Promoção: novo salário a partir de outubro",
+      "descricao": "Matheus foi promovido a desenvolvedor sênior com novo salário (R$ 12.000) a partir de 01/10.",
+      "aberta_por": "rh",
+      "responsavel": "contabilidade",
+      "status": "aguardando_contabilidade",
+      "criada_em": "2026-10-05",
+      "prazo": "2026-10-26",
+      "resolvida_em": null,
+      "canal_origem": "email",
+      "bloqueia_fechamento": true,
+      "historico": [
+        {
+          "data": "2026-10-05",
+          "autor": "Isabela Freitas",
+          "papel": "rh",
+          "canal": "email",
+          "mensagem": "Carlos, o Matheus foi promovido. Novo salário R$ 12.000 a partir de 01/10."
+        }
+      ]
+    },
+    {
+      "id": "P030",
+      "empresa_id": "E4",
+      "funcionario_id": "F29",
+      "tipo": "duvida_holerite",
+      "titulo": "FGTS de setembro não aparece no app do FGTS",
+      "descricao": "Larissa olhou o app do FGTS e não viu o depósito de setembro.",
+      "aberta_por": "funcionario",
+      "responsavel": "contabilidade",
+      "status": "aberta",
+      "criada_em": "2026-10-18",
+      "prazo": null,
+      "resolvida_em": null,
+      "canal_origem": "rh_net",
+      "bloqueia_fechamento": false,
+      "historico": [
+        {
+          "data": "2026-10-18",
+          "autor": "Larissa Teixeira",
+          "papel": "funcionario",
+          "canal": "rh_net",
+          "mensagem": "O FGTS de setembro não aparece no app da Caixa. Está tudo certo?"
+        }
+      ]
+    }
+  ],
+  "fechamentos": [
+    {
+      "empresa_id": "E1",
+      "competencia": "2026-09",
+      "status": "concluido",
+      "etapas": [
+        {
+          "etapa": "coleta_rh",
+          "descricao": "RH reúne e lança as informações do mês",
+          "data_prevista": "2026-09-23",
+          "data_realizada": "2026-09-25",
+          "status": "concluida"
+        },
+        {
+          "etapa": "envio_contabilidade",
+          "descricao": "RH envia as informações para a contabilidade",
+          "data_prevista": "2026-09-23",
+          "data_realizada": "2026-09-25",
+          "status": "concluida"
+        },
+        {
+          "etapa": "processamento",
+          "descricao": "Contabilidade calcula a folha",
+          "data_prevista": "2026-09-28",
+          "data_realizada": "2026-09-30",
+          "status": "concluida"
+        },
+        {
+          "etapa": "conferencia_rh",
+          "descricao": "RH confere a prévia da folha",
+          "data_prevista": "2026-09-30",
+          "data_realizada": "2026-10-01",
+          "status": "concluida"
+        },
+        {
+          "etapa": "fechamento",
+          "descricao": "Folha fechada e enviada ao governo",
+          "data_prevista": "2026-10-01",
+          "data_realizada": "2026-10-02",
+          "status": "concluida"
+        },
+        {
+          "etapa": "holerites_liberados",
+          "descricao": "Holerites disponíveis para os funcionários",
+          "data_prevista": "2026-10-02",
+          "data_realizada": "2026-10-05",
+          "status": "concluida"
+        }
+      ]
+    },
+    {
+      "empresa_id": "E2",
+      "competencia": "2026-09",
+      "status": "concluido",
+      "etapas": [
+        {
+          "etapa": "coleta_rh",
+          "descricao": "RH reúne e lança as informações do mês",
+          "data_prevista": "2026-09-22",
+          "data_realizada": "2026-09-23",
+          "status": "concluida"
+        },
+        {
+          "etapa": "envio_contabilidade",
+          "descricao": "RH envia as informações para a contabilidade",
+          "data_prevista": "2026-09-22",
+          "data_realizada": "2026-09-23",
+          "status": "concluida"
+        },
+        {
+          "etapa": "processamento",
+          "descricao": "Contabilidade calcula a folha",
+          "data_prevista": "2026-09-26",
+          "data_realizada": "2026-09-28",
+          "status": "concluida"
+        },
+        {
+          "etapa": "conferencia_rh",
+          "descricao": "RH confere a prévia da folha",
+          "data_prevista": "2026-09-29",
+          "data_realizada": "2026-09-30",
+          "status": "concluida"
+        },
+        {
+          "etapa": "fechamento",
+          "descricao": "Folha fechada e enviada ao governo",
+          "data_prevista": "2026-09-30",
+          "data_realizada": "2026-10-01",
+          "status": "concluida"
+        },
+        {
+          "etapa": "holerites_liberados",
+          "descricao": "Holerites disponíveis para os funcionários",
+          "data_prevista": "2026-10-01",
+          "data_realizada": "2026-10-02",
+          "status": "concluida"
+        }
+      ]
+    },
+    {
+      "empresa_id": "E3",
+      "competencia": "2026-09",
+      "status": "concluido",
+      "etapas": [
+        {
+          "etapa": "coleta_rh",
+          "descricao": "RH reúne e lança as informações do mês",
+          "data_prevista": "2026-09-21",
+          "data_realizada": "2026-09-21",
+          "status": "concluida"
+        },
+        {
+          "etapa": "envio_contabilidade",
+          "descricao": "RH envia as informações para a contabilidade",
+          "data_prevista": "2026-09-21",
+          "data_realizada": "2026-09-21",
+          "status": "concluida"
+        },
+        {
+          "etapa": "processamento",
+          "descricao": "Contabilidade calcula a folha",
+          "data_prevista": "2026-09-25",
+          "data_realizada": "2026-09-25",
+          "status": "concluida"
+        },
+        {
+          "etapa": "conferencia_rh",
+          "descricao": "RH confere a prévia da folha",
+          "data_prevista": "2026-09-28",
+          "data_realizada": "2026-09-28",
+          "status": "concluida"
+        },
+        {
+          "etapa": "fechamento",
+          "descricao": "Folha fechada e enviada ao governo",
+          "data_prevista": "2026-09-29",
+          "data_realizada": "2026-09-29",
+          "status": "concluida"
+        },
+        {
+          "etapa": "holerites_liberados",
+          "descricao": "Holerites disponíveis para os funcionários",
+          "data_prevista": "2026-09-30",
+          "data_realizada": "2026-09-30",
+          "status": "concluida"
+        }
+      ]
+    },
+    {
+      "empresa_id": "E4",
+      "competencia": "2026-09",
+      "status": "concluido",
+      "etapas": [
+        {
+          "etapa": "coleta_rh",
+          "descricao": "RH reúne e lança as informações do mês",
+          "data_prevista": "2026-09-25",
+          "data_realizada": "2026-09-25",
+          "status": "concluida"
+        },
+        {
+          "etapa": "envio_contabilidade",
+          "descricao": "RH envia as informações para a contabilidade",
+          "data_prevista": "2026-09-25",
+          "data_realizada": "2026-09-25",
+          "status": "concluida"
+        },
+        {
+          "etapa": "processamento",
+          "descricao": "Contabilidade calcula a folha",
+          "data_prevista": "2026-09-29",
+          "data_realizada": "2026-09-29",
+          "status": "concluida"
+        },
+        {
+          "etapa": "conferencia_rh",
+          "descricao": "RH confere a prévia da folha",
+          "data_prevista": "2026-09-30",
+          "data_realizada": "2026-09-30",
+          "status": "concluida"
+        },
+        {
+          "etapa": "fechamento",
+          "descricao": "Folha fechada e enviada ao governo",
+          "data_prevista": "2026-10-01",
+          "data_realizada": "2026-10-01",
+          "status": "concluida"
+        },
+        {
+          "etapa": "holerites_liberados",
+          "descricao": "Holerites disponíveis para os funcionários",
+          "data_prevista": "2026-10-01",
+          "data_realizada": "2026-10-01",
+          "status": "concluida"
+        }
+      ]
+    },
+    {
+      "empresa_id": "E1",
+      "competencia": "2026-10",
+      "status": "em_andamento",
+      "etapas": [
+        {
+          "etapa": "coleta_rh",
+          "descricao": "RH reúne e lança as informações do mês",
+          "data_prevista": "2026-10-23",
+          "data_realizada": null,
+          "status": "em_andamento"
+        },
+        {
+          "etapa": "envio_contabilidade",
+          "descricao": "RH envia as informações para a contabilidade",
+          "data_prevista": "2026-10-23",
+          "data_realizada": null,
+          "status": "pendente"
+        },
+        {
+          "etapa": "processamento",
+          "descricao": "Contabilidade calcula a folha",
+          "data_prevista": "2026-10-28",
+          "data_realizada": null,
+          "status": "pendente"
+        },
+        {
+          "etapa": "conferencia_rh",
+          "descricao": "RH confere a prévia da folha",
+          "data_prevista": "2026-10-30",
+          "data_realizada": null,
+          "status": "pendente"
+        },
+        {
+          "etapa": "fechamento",
+          "descricao": "Folha fechada e enviada ao governo",
+          "data_prevista": "2026-10-31",
+          "data_realizada": null,
+          "status": "pendente"
+        },
+        {
+          "etapa": "holerites_liberados",
+          "descricao": "Holerites disponíveis para os funcionários",
+          "data_prevista": "2026-11-03",
+          "data_realizada": null,
+          "status": "pendente"
+        }
+      ]
+    },
+    {
+      "empresa_id": "E2",
+      "competencia": "2026-10",
+      "status": "em_andamento",
+      "etapas": [
+        {
+          "etapa": "coleta_rh",
+          "descricao": "RH reúne e lança as informações do mês",
+          "data_prevista": "2026-10-22",
+          "data_realizada": null,
+          "status": "em_andamento"
+        },
+        {
+          "etapa": "envio_contabilidade",
+          "descricao": "RH envia as informações para a contabilidade",
+          "data_prevista": "2026-10-22",
+          "data_realizada": null,
+          "status": "pendente"
+        },
+        {
+          "etapa": "processamento",
+          "descricao": "Contabilidade calcula a folha",
+          "data_prevista": "2026-10-27",
+          "data_realizada": null,
+          "status": "pendente"
+        },
+        {
+          "etapa": "conferencia_rh",
+          "descricao": "RH confere a prévia da folha",
+          "data_prevista": "2026-10-29",
+          "data_realizada": null,
+          "status": "pendente"
+        },
+        {
+          "etapa": "fechamento",
+          "descricao": "Folha fechada e enviada ao governo",
+          "data_prevista": "2026-10-30",
+          "data_realizada": null,
+          "status": "pendente"
+        },
+        {
+          "etapa": "holerites_liberados",
+          "descricao": "Holerites disponíveis para os funcionários",
+          "data_prevista": "2026-11-03",
+          "data_realizada": null,
+          "status": "pendente"
+        }
+      ]
+    },
+    {
+      "empresa_id": "E3",
+      "competencia": "2026-10",
+      "status": "bloqueado",
+      "etapas": [
+        {
+          "etapa": "coleta_rh",
+          "descricao": "RH reúne e lança as informações do mês",
+          "data_prevista": "2026-10-21",
+          "data_realizada": "2026-10-17",
+          "status": "concluida"
+        },
+        {
+          "etapa": "envio_contabilidade",
+          "descricao": "RH envia as informações para a contabilidade",
+          "data_prevista": "2026-10-21",
+          "data_realizada": "2026-10-17",
+          "status": "concluida"
+        },
+        {
+          "etapa": "processamento",
+          "descricao": "Contabilidade calcula a folha",
+          "data_prevista": "2026-10-26",
+          "data_realizada": null,
+          "status": "em_andamento"
+        },
+        {
+          "etapa": "conferencia_rh",
+          "descricao": "RH confere a prévia da folha",
+          "data_prevista": "2026-10-28",
+          "data_realizada": null,
+          "status": "pendente"
+        },
+        {
+          "etapa": "fechamento",
+          "descricao": "Folha fechada e enviada ao governo",
+          "data_prevista": "2026-10-29",
+          "data_realizada": null,
+          "status": "pendente"
+        },
+        {
+          "etapa": "holerites_liberados",
+          "descricao": "Holerites disponíveis para os funcionários",
+          "data_prevista": "2026-10-30",
+          "data_realizada": null,
+          "status": "pendente"
+        }
+      ],
+      "bloqueio": "Processamento parado aguardando o RH confirmar horas extras (P019)."
+    },
+    {
+      "empresa_id": "E4",
+      "competencia": "2026-10",
+      "status": "em_andamento",
+      "etapas": [
+        {
+          "etapa": "coleta_rh",
+          "descricao": "RH reúne e lança as informações do mês",
+          "data_prevista": "2026-10-26",
+          "data_realizada": null,
+          "status": "em_andamento"
+        },
+        {
+          "etapa": "envio_contabilidade",
+          "descricao": "RH envia as informações para a contabilidade",
+          "data_prevista": "2026-10-26",
+          "data_realizada": null,
+          "status": "pendente"
+        },
+        {
+          "etapa": "processamento",
+          "descricao": "Contabilidade calcula a folha",
+          "data_prevista": "2026-10-29",
+          "data_realizada": null,
+          "status": "pendente"
+        },
+        {
+          "etapa": "conferencia_rh",
+          "descricao": "RH confere a prévia da folha",
+          "data_prevista": "2026-10-30",
+          "data_realizada": null,
+          "status": "pendente"
+        },
+        {
+          "etapa": "fechamento",
+          "descricao": "Folha fechada e enviada ao governo",
+          "data_prevista": "2026-10-31",
+          "data_realizada": null,
+          "status": "pendente"
+        },
+        {
+          "etapa": "holerites_liberados",
+          "descricao": "Holerites disponíveis para os funcionários",
+          "data_prevista": "2026-11-03",
+          "data_realizada": null,
+          "status": "pendente"
+        }
+      ]
+    }
+  ],
+  "holerites": [
+    {
+      "funcionario_id": "F01",
+      "competencia": "2026-08",
+      "eventos": [
+        {
+          "codigo": "001",
+          "descricao": "Salário base",
+          "tipo": "provento",
+          "referencia": "30 dias",
+          "valor": 2100.0
+        },
+        {
+          "codigo": "901",
+          "descricao": "INSS",
+          "tipo": "desconto",
+          "referencia": "ilustrativo",
+          "valor": 163.0
+        },
+        {
+          "codigo": "910",
+          "descricao": "Vale-transporte",
+          "tipo": "desconto",
+          "referencia": "6%",
+          "valor": 126.0
+        }
+      ],
+      "total_proventos": 2100.0,
+      "total_descontos": 289.0,
+      "liquido": 1811.0
+    },
+    {
+      "funcionario_id": "F01",
+      "competencia": "2026-09",
+      "eventos": [
+        {
+          "codigo": "001",
+          "descricao": "Salário base",
+          "tipo": "provento",
+          "referencia": "30 dias",
+          "valor": 2100.0
+        },
+        {
+          "codigo": "401",
+          "descricao": "Faltas",
+          "tipo": "desconto",
+          "referencia": "1 dia (15/09)",
+          "valor": 70.0
+        },
+        {
+          "codigo": "402",
+          "descricao": "DSR sobre faltas",
+          "tipo": "desconto",
+          "referencia": "1 dia",
+          "valor": 70.0
+        },
+        {
+          "codigo": "901",
+          "descricao": "INSS",
+          "tipo": "desconto",
+          "referencia": "ilustrativo",
+          "valor": 151.8
+        },
+        {
+          "codigo": "910",
+          "descricao": "Vale-transporte",
+          "tipo": "desconto",
+          "referencia": "6%",
+          "valor": 126.0
+        }
+      ],
+      "total_proventos": 2100.0,
+      "total_descontos": 417.8,
+      "liquido": 1682.2
+    },
+    {
+      "funcionario_id": "F23",
+      "competencia": "2026-09",
+      "eventos": [
+        {
+          "codigo": "001",
+          "descricao": "Salário base",
+          "tipo": "provento",
+          "referencia": "30 dias",
+          "valor": 2500.0
+        },
+        {
+          "codigo": "051",
+          "descricao": "Adic. Insalub. Grau Médio",
+          "tipo": "provento",
+          "referencia": "20%",
+          "valor": 324.2
+        },
+        {
+          "codigo": "901",
+          "descricao": "INSS",
+          "tipo": "desconto",
+          "referencia": "ilustrativo",
+          "valor": 240.0
+        },
+        {
+          "codigo": "910",
+          "descricao": "Vale-transporte",
+          "tipo": "desconto",
+          "referencia": "6%",
+          "valor": 150.0
+        }
+      ],
+      "total_proventos": 2824.2,
+      "total_descontos": 390.0,
+      "liquido": 2434.2
+    },
+    {
+      "funcionario_id": "F28",
+      "competencia": "2026-09",
+      "eventos": [
+        {
+          "codigo": "001",
+          "descricao": "Salário base",
+          "tipo": "provento",
+          "referencia": "30 dias",
+          "valor": 8500.0
+        },
+        {
+          "codigo": "901",
+          "descricao": "INSS",
+          "tipo": "desconto",
+          "referencia": "ilustrativo",
+          "valor": 951.0
+        },
+        {
+          "codigo": "902",
+          "descricao": "IRRF",
+          "tipo": "desconto",
+          "referencia": "ilustrativo",
+          "valor": 1180.0
+        }
+      ],
+      "total_proventos": 8500.0,
+      "total_descontos": 2131.0,
+      "liquido": 6369.0
+    }
+  ]
+}

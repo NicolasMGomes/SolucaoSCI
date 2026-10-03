@@ -1,0 +1,59 @@
+﻿pendencia_id;data;autor;papel;canal;mensagem
+P001;2026-10-06;Marina Souza;funcionario;whatsapp;Seu Valdir, meu salário veio uns 130 reais a menos esse mês, o que aconteceu?
+P001;2026-10-06;Valdir Machado;rh;whatsapp;Vou ver com a contabilidade e te falo.
+P001;2026-10-13;Marina Souza;funcionario;whatsapp;Conseguiu ver aquilo do salário?
+P002;2026-09-15;Marina Souza;funcionario;whatsapp;Seu Valdir, segue a foto do atestado de hoje.
+P002;2026-09-30;Carlos Eduardo Sens;contabilidade;email;Valdir, consta falta da Marina em 15/09 sem justificativa. Vamos descontar na folha de setembro. Se houver atestado, nos envie.
+P002;2026-10-14;Carlos Eduardo Sens;contabilidade;email;Valdir, se o atestado da Marina for enviado até 23/10, devolvemos o desconto na folha de outubro.
+P003;2026-09-28;Carlos Eduardo Sens;contabilidade;email;Valdir, o Kauã não tem conta bancária cadastrada. Precisamos de banco, agência e conta.
+P003;2026-09-29;Valdir Machado;rh;whatsapp;Kauã, manda pra mim os dados da tua conta.
+P003;2026-10-08;Valdir Machado;rh;whatsapp;Kauã, e a conta?
+P004;2026-10-14;Valdir Machado;rh;telefone;Contratei uma atendente nova, começa dia 26. Te mando os documentos.
+P004;2026-10-15;Carlos Eduardo Sens;contabilidade;email;Valdir, recebi RG e CPF da Bianca. Faltam o exame admissional (ASO) e o print da CTPS digital.
+P005;2026-10-16;Carlos Eduardo Sens;contabilidade;telefone;(ligação) Pediu ao Valdir as horas trabalhadas no feriado de 12/10. Valdir disse que ia olhar o caderno de ponto.
+P006;2026-10-10;Luana Fernandes;funcionario;presencial;(conversa no balcão) Pediu férias a partir de 1º de dezembro. Valdir disse que 'deve dar'.
+P007;2026-10-16;Irene Schmitt;funcionario;telefone;Perguntou ao Valdir quanto vai receber de 13º. Ele não soube responder.
+P008;2026-10-01;Ana Paula Krüger;rh;rh_net;Lançado desligamento do Diego Martins, aviso trabalhado até 30/10.
+P008;2026-10-05;Carlos Eduardo Sens;contabilidade;email;Ana, o aviso é com redução de 2h por dia ou 7 dias corridos no final?
+P008;2026-10-06;Ana Paula Krüger;rh;email;7 dias corridos no final.
+P009;2026-10-02;Carlos Eduardo Sens;contabilidade;email;Ana, segue recibo de férias da Priscila para assinatura.
+P009;2026-10-03;Ana Paula Krüger;rh;whatsapp;Priscila, quando voltar me procura pra assinar o recibo de férias, ok?
+P010;2026-10-08;Ana Paula Krüger;rh;whatsapp;Tati, parabéns! Quando puder, me manda a foto da certidão de nascimento.
+P010;2026-10-16;Ana Paula Krüger;rh;whatsapp;Tati, consegue mandar a certidão essa semana? A contabilidade precisa até dia 22.
+P011;2026-10-14;Edson Pfiffer;funcionario;whatsapp;Ana, troquei de banco, os dados novos são: banco 999, ag 0001, conta 12345-6.
+P011;2026-10-15;Ana Paula Krüger;rh;email;Carlos, segue a conta nova do Edson.
+P011;2026-10-15;Carlos Eduardo Sens;contabilidade;email;Ana, precisamos de um comprovante de que a conta é dele (print do app do banco com o nome).
+P011;2026-10-15;Ana Paula Krüger;rh;whatsapp;Edson, manda um print do app do banco mostrando teu nome e a conta.
+P012;2026-10-07;Jaqueline dos Santos;funcionario;presencial;Perguntou por que o desconto do VT aumentou.
+P012;2026-10-09;Ana Paula Krüger;rh;presencial;Explicou que ela passou a usar duas linhas de ônibus e o desconto é de até 6% do salário.
+P013;2026-10-09;Gustavo Lenz;funcionario;rh_net;Solicito ajuste: saída para almoço em 08/10 as 12:00.
+P014;2026-10-16;Carlos Eduardo Sens;contabilidade;email;Ana, precisamos das horas extras dos sábados de outubro até dia 22.
+P014;2026-10-17;Ana Paula Krüger;rh;email;Carlos, estou esperando o Roberto me passar a planilha.
+P014;2026-10-17;Ana Paula Krüger;rh;whatsapp;Roberto, preciso da planilha dos sábados até quarta.
+P015;2026-10-13;Lucas Batista;funcionario;whatsapp;Ana, aprendiz ganha 13º? Quanto vou receber?
+P015;2026-10-13;Ana Paula Krüger;rh;email;Carlos, consegue me passar o valor estimado do 13º do Lucas?
+P016;2026-10-05;Fernanda Zimmermann;funcionario;email;Ana, segue certidão do meu filho para incluir como dependente.
+P016;2026-10-06;Ana Paula Krüger;rh;rh_net;Lançado pedido de inclusão de dependente com certidão anexa.
+P017;2026-10-12;Simone Kleine;funcionario;rh_net;Gostaria de tirar 20 dias de férias a partir de 11/01/2027.
+P018;2026-09-30;Carlos Eduardo Sens;contabilidade;email;Ana, saiu a convenção coletiva nova? O reajuste vale a partir de outubro.
+P018;2026-10-09;Carlos Eduardo Sens;contabilidade;email;Ana, reforçando o pedido da convenção coletiva.
+P019;2026-10-17;Juliana Costa;rh;rh_net;Informações de outubro enviadas.
+P019;2026-10-19;Carlos Eduardo Sens;contabilidade;rh_net;Juliana, o Thiago tem 22h extras lançadas sem aprovação. Confirma? A folha está parada aguardando.
+P020;2026-10-10;Camila Reis;funcionario;rh_net;Atualizei minha conta e anexei o comprovante.
+P020;2026-10-12;Carlos Eduardo Sens;contabilidade;rh_net;Conta atualizada. Vale a partir da folha de outubro.
+P021;2026-10-02;Patrícia Vieira;funcionario;whatsapp;Ju, não veio minha insalubridade esse mês!
+P021;2026-10-03;Juliana Costa;rh;email;Carlos, a Patrícia diz que não recebeu insalubridade em setembro.
+P021;2026-10-04;Carlos Eduardo Sens;contabilidade;email;Juliana, foi pago sim: é a linha 'Adic. Insalub. Grau Médio' no holerite.
+P021;2026-10-15;Patrícia Vieira;funcionario;whatsapp;Ju, e a insalubridade?
+P022;2026-10-15;Sabrina Melo;funcionario;rh_net;Atestado anexado (13 e 14/10).
+P022;2026-10-16;Juliana Costa;rh;rh_net;Atestado validado e enviado.
+P023;2026-10-08;Juliana Costa;rh;rh_net;Programadas férias da Renata: 09/11 a 28/11.
+P024;2026-10-13;Bruno Schneider;funcionario;email;Isabela, a PLR de novembro tem desconto de IR?
+P024;2026-10-13;Isabela Freitas;rh;email;Carlos, consegue responder essa do Bruno?
+P025;2026-10-11;Henrique Alves;funcionario;rh_net;Atualizei meu endereço.
+P025;2026-10-11;Isabela Freitas;rh;rh_net;Aprovado.
+P026;2026-10-01;Isabela Freitas;rh;rh_net;Programadas férias da Gabriela: 03/11 a 22/11.
+P027;2026-10-16;Yasmin Carvalho;funcionario;whatsapp;Isa, meu banco de horas tá -6h, não entendi.
+P028;2026-10-20;Otávio Ramos;funcionario;whatsapp;Isa, segue atestado de ontem (foto).
+P029;2026-10-05;Isabela Freitas;rh;email;Carlos, o Matheus foi promovido. Novo salário R$ 12.000 a partir de 01/10.
+P030;2026-10-18;Larissa Teixeira;funcionario;rh_net;O FGTS de setembro não aparece no app da Caixa. Está tudo certo?

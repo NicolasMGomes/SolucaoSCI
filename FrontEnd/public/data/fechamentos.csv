@@ -1,0 +1,49 @@
+﻿empresa_id;competencia;status_fechamento;etapa;descricao;data_prevista;data_realizada;status
+E1;2026-09;concluido;coleta_rh;RH reúne e lança as informações do mês;2026-09-23;2026-09-25;concluida
+E1;2026-09;concluido;envio_contabilidade;RH envia as informações para a contabilidade;2026-09-23;2026-09-25;concluida
+E1;2026-09;concluido;processamento;Contabilidade calcula a folha;2026-09-28;2026-09-30;concluida
+E1;2026-09;concluido;conferencia_rh;RH confere a prévia da folha;2026-09-30;2026-10-01;concluida
+E1;2026-09;concluido;fechamento;Folha fechada e enviada ao governo;2026-10-01;2026-10-02;concluida
+E1;2026-09;concluido;holerites_liberados;Holerites disponíveis para os funcionários;2026-10-02;2026-10-05;concluida
+E2;2026-09;concluido;coleta_rh;RH reúne e lança as informações do mês;2026-09-22;2026-09-23;concluida
+E2;2026-09;concluido;envio_contabilidade;RH envia as informações para a contabilidade;2026-09-22;2026-09-23;concluida
+E2;2026-09;concluido;processamento;Contabilidade calcula a folha;2026-09-26;2026-09-28;concluida
+E2;2026-09;concluido;conferencia_rh;RH confere a prévia da folha;2026-09-29;2026-09-30;concluida
+E2;2026-09;concluido;fechamento;Folha fechada e enviada ao governo;2026-09-30;2026-10-01;concluida
+E2;2026-09;concluido;holerites_liberados;Holerites disponíveis para os funcionários;2026-10-01;2026-10-02;concluida
+E3;2026-09;concluido;coleta_rh;RH reúne e lança as informações do mês;2026-09-21;2026-09-21;concluida
+E3;2026-09;concluido;envio_contabilidade;RH envia as informações para a contabilidade;2026-09-21;2026-09-21;concluida
+E3;2026-09;concluido;processamento;Contabilidade calcula a folha;2026-09-25;2026-09-25;concluida
+E3;2026-09;concluido;conferencia_rh;RH confere a prévia da folha;2026-09-28;2026-09-28;concluida
+E3;2026-09;concluido;fechamento;Folha fechada e enviada ao governo;2026-09-29;2026-09-29;concluida
+E3;2026-09;concluido;holerites_liberados;Holerites disponíveis para os funcionários;2026-09-30;2026-09-30;concluida
+E4;2026-09;concluido;coleta_rh;RH reúne e lança as informações do mês;2026-09-25;2026-09-25;concluida
+E4;2026-09;concluido;envio_contabilidade;RH envia as informações para a contabilidade;2026-09-25;2026-09-25;concluida
+E4;2026-09;concluido;processamento;Contabilidade calcula a folha;2026-09-29;2026-09-29;concluida
+E4;2026-09;concluido;conferencia_rh;RH confere a prévia da folha;2026-09-30;2026-09-30;concluida
+E4;2026-09;concluido;fechamento;Folha fechada e enviada ao governo;2026-10-01;2026-10-01;concluida
+E4;2026-09;concluido;holerites_liberados;Holerites disponíveis para os funcionários;2026-10-01;2026-10-01;concluida
+E1;2026-10;em_andamento;coleta_rh;RH reúne e lança as informações do mês;2026-10-23;;em_andamento
+E1;2026-10;em_andamento;envio_contabilidade;RH envia as informações para a contabilidade;2026-10-23;;pendente
+E1;2026-10;em_andamento;processamento;Contabilidade calcula a folha;2026-10-28;;pendente
+E1;2026-10;em_andamento;conferencia_rh;RH confere a prévia da folha;2026-10-30;;pendente
+E1;2026-10;em_andamento;fechamento;Folha fechada e enviada ao governo;2026-10-31;;pendente
+E1;2026-10;em_andamento;holerites_liberados;Holerites disponíveis para os funcionários;2026-11-03;;pendente
+E2;2026-10;em_andamento;coleta_rh;RH reúne e lança as informações do mês;2026-10-22;;em_andamento
+E2;2026-10;em_andamento;envio_contabilidade;RH envia as informações para a contabilidade;2026-10-22;;pendente
+E2;2026-10;em_andamento;processamento;Contabilidade calcula a folha;2026-10-27;;pendente
+E2;2026-10;em_andamento;conferencia_rh;RH confere a prévia da folha;2026-10-29;;pendente
+E2;2026-10;em_andamento;fechamento;Folha fechada e enviada ao governo;2026-10-30;;pendente
+E2;2026-10;em_andamento;holerites_liberados;Holerites disponíveis para os funcionários;2026-11-03;;pendente
+E3;2026-10;bloqueado;coleta_rh;RH reúne e lança as informações do mês;2026-10-21;2026-10-17;concluida
+E3;2026-10;bloqueado;envio_contabilidade;RH envia as informações para a contabilidade;2026-10-21;2026-10-17;concluida
+E3;2026-10;bloqueado;processamento;Contabilidade calcula a folha;2026-10-26;;em_andamento
+E3;2026-10;bloqueado;conferencia_rh;RH confere a prévia da folha;2026-10-28;;pendente
+E3;2026-10;bloqueado;fechamento;Folha fechada e enviada ao governo;2026-10-29;;pendente
+E3;2026-10;bloqueado;holerites_liberados;Holerites disponíveis para os funcionários;2026-10-30;;pendente
+E4;2026-10;em_andamento;coleta_rh;RH reúne e lança as informações do mês;2026-10-26;;em_andamento
+E4;2026-10;em_andamento;envio_contabilidade;RH envia as informações para a contabilidade;2026-10-26;;pendente
+E4;2026-10;em_andamento;processamento;Contabilidade calcula a folha;2026-10-29;;pendente
+E4;2026-10;em_andamento;conferencia_rh;RH confere a prévia da folha;2026-10-30;;pendente
+E4;2026-10;em_andamento;fechamento;Folha fechada e enviada ao governo;2026-10-31;;pendente
+E4;2026-10;em_andamento;holerites_liberados;Holerites disponíveis para os funcionários;2026-11-03;;pendente

@@ -1,0 +1,16 @@
+﻿funcionario_id;competencia;codigo;descricao;tipo;referencia;valor
+F01;2026-08;001;Salário base;provento;30 dias;2100.0
+F01;2026-08;901;INSS;desconto;ilustrativo;163.0
+F01;2026-08;910;Vale-transporte;desconto;6%;126.0
+F01;2026-09;001;Salário base;provento;30 dias;2100.0
+F01;2026-09;401;Faltas;desconto;1 dia (15/09);70.0
+F01;2026-09;402;DSR sobre faltas;desconto;1 dia;70.0
+F01;2026-09;901;INSS;desconto;ilustrativo;151.8
+F01;2026-09;910;Vale-transporte;desconto;6%;126.0
+F23;2026-09;001;Salário base;provento;30 dias;2500.0
+F23;2026-09;051;Adic. Insalub. Grau Médio;provento;20%;324.2
+F23;2026-09;901;INSS;desconto;ilustrativo;240.0
+F23;2026-09;910;Vale-transporte;desconto;6%;150.0
+F28;2026-09;001;Salário base;provento;30 dias;8500.0
+F28;2026-09;901;INSS;desconto;ilustrativo;951.0
+F28;2026-09;902;IRRF;desconto;ilustrativo;1180.0

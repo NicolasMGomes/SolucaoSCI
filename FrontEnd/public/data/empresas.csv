@@ -1,0 +1,5 @@
+﻿id;nome;segmento;qtd_funcionarios;rh_nome;rh_cargo;rh_email;usa_rh_net;canal_preferido;prazo_envio_rh;data_pagamento_salario
+E1;Padaria Pão da Vila;Alimentação / comércio;7;Valdir Machado;Proprietário (cuida do RH sozinho);valdir@paodavila.exemplo;False;whatsapp;2026-10-23;2026-11-06
+E2;Malharia Fio Azul;Indústria têxtil;40;Ana Paula Krüger;Analista de RH;ana.kruger@fioazul.exemplo;True;email;2026-10-22;2026-11-05
+E3;Clínica Odonto Sorriso;Saúde / serviços;7;Juliana Costa;Gerente administrativa (acumula o RH);juliana@odontosorriso.exemplo;True;whatsapp;2026-10-21;2026-11-05
+E4;TechNorte Software;Tecnologia;9;Isabela Freitas;Coordenadora de pessoas;isabela@technorte.exemplo;True;rh_net;2026-10-26;2026-11-05
